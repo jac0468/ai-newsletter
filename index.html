@@ -2,252 +2,333 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jimmy's Enterprise AI Briefing</title>
-
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #eef2f7;
       margin: 0;
-      padding: 40px 20px;
-      color: #1f2937;
-      line-height: 1.6;
+      padding: 0;
+      background: #edf1f5;
+      color: #172033;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.58;
     }
 
-    .container {
-      max-width: 980px;
-      margin: auto;
+    .page {
+      max-width: 940px;
+      margin: 0 auto;
       background: #ffffff;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.14);
+      box-shadow: 0 10px 34px rgba(15, 23, 42, 0.14);
     }
 
-    .hero {
-      background: linear-gradient(135deg, #0f172a, #1e3a8a);
-      color: white;
-      text-align: center;
-      padding: 48px 30px;
+    .masthead {
+      background: #101b2d;
+      color: #ffffff;
+      padding: 34px 44px 30px;
+      border-bottom: 5px solid #2f6fed;
     }
 
-    .hero img {
-      width: 135px;
-      height: 135px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.35);
-      margin-bottom: 18px;
+    .brand-row {
+      display: table;
+      width: 100%;
     }
 
-    .hero h1 {
-      margin: 10px 0 8px 0;
-      font-size: 36px;
+    .brand-copy,
+    .date-chip {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #9fb7d8;
+      font-size: 12px;
+      font-weight: 700;
       letter-spacing: 0;
+      text-transform: uppercase;
     }
 
-    .hero p {
+    .masthead h1 {
       margin: 0;
-      font-size: 16px;
-      color: #dbeafe;
+      font-size: 32px;
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .masthead p {
+      margin: 12px 0 0;
+      color: #dbe6f7;
+      font-size: 15px;
+      max-width: 680px;
+    }
+
+    .date-chip {
+      width: 190px;
+      text-align: right;
+      color: #dbe6f7;
+      font-size: 13px;
+      font-weight: 700;
     }
 
     .content {
-      padding: 40px;
+      padding: 34px 44px 42px;
     }
 
-    .content h1 {
-      color: #1e3a8a;
-      font-size: 30px;
-      margin-bottom: 20px;
+    .brief-intro {
+      margin: 0 0 24px;
+      padding: 18px 20px;
+      background: #f7f9fc;
+      border-left: 4px solid #2f6fed;
+      border-radius: 6px;
     }
 
-    .content h2 {
-      color: #1d4ed8;
-      margin-top: 32px;
-      margin-bottom: 14px;
-      font-size: 24px;
+    .brief-intro p {
+      margin: 0;
+      font-size: 16px;
+      color: #263449;
     }
 
-    .content ul {
-      background: #f8fafc;
-      padding: 20px 28px;
-      border-left: 5px solid #2563eb;
-      border-radius: 10px;
+    h2 {
+      margin: 0 0 16px;
+      color: #101b2d;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .takeaways,
+    .watchlist {
+      margin: 0 0 30px;
+      padding: 22px 24px;
+      background: #f5f8fc;
+      border: 1px solid #dfe7f2;
+      border-radius: 8px;
+    }
+
+    .takeaways ul,
+    .watchlist ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .takeaways li,
+    .watchlist li {
+      margin: 8px 0;
+    }
+
+    .section-block {
+      margin: 34px 0 10px;
+      padding-top: 6px;
+      border-top: 1px solid #dfe7f2;
+    }
+
+    .section-kicker {
+      margin: 18px 0 6px;
+      color: #2f6fed;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
     }
 
     .story {
+      margin: 18px 0 24px;
+      padding: 24px;
       background: #ffffff;
-      padding: 26px;
-      margin: 28px 0;
-      border-radius: 14px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+      border: 1px solid #d8e0eb;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.07);
     }
 
-    .story h2 {
-      margin-top: 0;
-      color: #2563eb;
-      border-bottom: 2px solid #dbeafe;
-      padding-bottom: 10px;
+    .story-meta {
+      margin: 0 0 12px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .source {
+      color: #101b2d;
+      background: #eaf0f8;
+      border-radius: 999px;
+      padding: 5px 9px;
+      margin-right: 8px;
+      display: inline-block;
+    }
+
+    .category {
+      color: #234e76;
+      background: #e8f5f4;
+      border-radius: 999px;
+      padding: 5px 9px;
+      display: inline-block;
+    }
+
+    .story h2,
+    .story h3 {
+      margin: 0 0 14px;
+      color: #13233a;
+      font-size: 22px;
+      line-height: 1.28;
     }
 
     .story p {
-      margin: 14px 0;
-      font-size: 15.5px;
-    }
-
-    a {
-      color: #2563eb;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      margin: 12px 0;
+      font-size: 15px;
+      color: #27364c;
     }
 
     .button {
       display: inline-block;
-      background: #2563eb;
-      color: white !important;
-      padding: 11px 20px;
-      border-radius: 8px;
-      text-decoration: none !important;
-      font-weight: bold;
       margin-top: 12px;
-      box-shadow: 0 2px 8px rgba(37,99,235,0.35);
+      padding: 10px 15px;
+      color: #ffffff !important;
+      background: #2458d3;
+      border-radius: 6px;
+      text-decoration: none !important;
+      font-weight: 800;
+      font-size: 14px;
     }
 
-    .button:hover {
-      background: #1d4ed8;
-      text-decoration: none !important;
+    a {
+      color: #2458d3;
+      text-decoration: none;
+      font-weight: 700;
     }
 
     .footer {
-      background: #f8fafc;
-      padding: 24px 35px;
-      border-top: 1px solid #e5e7eb;
+      padding: 22px 44px;
+      background: #f7f9fc;
+      border-top: 1px solid #dfe7f2;
       color: #64748b;
       font-size: 13px;
       text-align: center;
     }
 
-    .site-link {
-      margin-top: 10px;
-    }
-
     @media only screen and (max-width: 700px) {
-      body {
-        padding: 15px;
+      .masthead,
+      .content,
+      .footer {
+        padding-left: 22px;
+        padding-right: 22px;
       }
 
-      .content {
-        padding: 24px;
+      .brand-copy,
+      .date-chip {
+        display: block;
+        width: auto;
+        text-align: left;
       }
 
-      .hero h1 {
-        font-size: 28px;
+      .date-chip {
+        margin-top: 14px;
       }
 
-      .story {
-        padding: 20px;
+      .masthead h1 {
+        font-size: 27px;
+      }
+
+      .story,
+      .takeaways,
+      .watchlist {
+        padding: 18px;
       }
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
-
-    <div class="hero">
-      <img src="https://github.com/jac0468/ai-newsletter/blob/main/jimmy.png?raw=true">
-      <h1>Jimmy's Enterprise AI Briefing</h1>
-      <p>Daily AI intelligence for infrastructure, cloud, security, and automation professionals</p>
-    </div>
-
-    <div class="content">
-      <div>
-  <h1>Jimmy's Enterprise AI Infrastructure Briefing</h1>
-
-  <p>
-  Today's briefing covers the most important developments in enterprise AI, cloud infrastructure, cybersecurity, automation, and Microsoft/Azure technologies impacting IT teams and infrastructure operations.
-  </p>
-
-  <h2>Today's Key Takeaways</h2>
-  <ul>
-    <li>Microsoft is committing $10 billion to enhance AI infrastructure and cybersecurity in Japan.</li>
-    <li>Accenture and Microsoft are co-investing in generative AI-driven cybersecurity solutions to optimize operational costs.</li>
-    <li>Microsoft's recent $80 billion investment signals its commitment to expanding cloud and AI infrastructure.</li>
-    <li>Organizations are focusing on optimizing Azure services for AI and security as hybrid cloud strategies evolve.</li>
-    <li>Innovations in Azure AI are paving the way for enhanced automation and advanced analytics capabilities.</li>
-  </ul>
-
-  <h2>Top AI Stories</h2>
-  <div class="story">
-    <h2>Microsoft Unveils $10B Plan to Scale AI, Cloud, and Cybersecurity in Japan</h2>
-    <p><strong>Source:</strong> eWeek</p>
-    <p><strong>Executive Summary:</strong> Microsoft plans to invest $10 billion in Japan through 2029 to expand its AI infrastructure and deepen cybersecurity ties while training cloud workers.</p>
-    <p><strong>Why This Matters to Enterprise IT:</strong> This investment underscores Microsoft's strategy to boost AI and cybersecurity, which could influence global strategies and best practices in these domains.</p>
-    <p><strong>Infrastructure Impact:</strong> The funding is expected to enhance Azure's capability in AI and security, making it a more robust solution for enterprises, especially in hybrid environments.</p>
-    <p><strong>Security or Operational Considerations:</strong> This initiative may elevate the security framework for businesses leveraging Azure solutions, mitigating risks in cloud operations.</p>
-    <a href="https://www.eweek.com/news/microsoft-10b-ai-investment-japan/" target="_blank" rel="noopener noreferrer" class="button">Read More</a>
-  </div>
-
-  <div class="story">
-    <h2>Accenture and Microsoft Expand Collaboration on Gen-AI Powered Cyber Solutions</h2>
-    <p><strong>Source:</strong> Accenture Newsroom</p>
-    <p><strong>Executive Summary:</strong> Accenture and Microsoft are co-investing in the development of advanced, generative AI-driven cybersecurity solutions aimed at optimizing operations while consolidating tech tools.</p>
-    <p><strong>Why This Matters to Enterprise IT:</strong> The collaboration represents a significant step towards enhancing cybersecurity capabilities through AI, presenting opportunities for IT teams to improve operational efficiency.</p>
-    <p><strong>Infrastructure Impact:</strong> These innovations will likely streamline Azure services and offer enhanced security measures, integrating seamlessly into existing IT frameworks.</p>
-    <p><strong>Security or Operational Considerations:</strong> Organizations can expect improved resilience against cyber threats, though they must remain vigilant about the evolving landscape of AI-enabled risks.</p>
-    <a href="https://newsroom.accenture.com/news/2025/accenture-and-microsoft-expand-collaboration-on-gen-ai-powered-cyber-solutions" target="_blank" rel="noopener noreferrer" class="button">Read More</a>
-  </div>
-
-  <h2>Enterprise Infrastructure</h2>
-  <div class="story">
-    <h2>Microsoft Invests $80B in Cloud and AI Infrastructure Expansion</h2>
-    <p><strong>Source:</strong> Data Centers</p>
-    <p><strong>Executive Summary:</strong> Microsoft has announced an $80 billion investment capex for 2025 aimed at expanding Azure cloud, AI infrastructure, and sustainable computing initiatives.</p>
-    <p><strong>Why This Matters to Enterprise IT:</strong> This considerable investment positions Microsoft to lead in the cloud and AI space, directly impacting the competitiveness of Azure against other cloud providers.</p>
-    <p><strong>Infrastructure Impact:</strong> The outcome is expected to enhance services across Azure, including data center expansion and capabilities in AI-driven solutions.</p>
-    <p><strong>Security or Operational Considerations:</strong> As facilities increase in scale, maintaining security compliance and operational standards will be critical.</p>
-    <a href="https://www.datacenters.com/news/microsoft-s-80b-capex-signals-continued-cloud-expansion-and-strategic-ai-infrastructure-bet" target="_blank" rel="noopener noreferrer" class="button">Read More</a>
-  </div>
-
-  <h2>Tools & Automation</h2>
-  <div class="story">
-    <h2>Building secure, scalable AI in the cloud with Microsoft Azure</h2>
-    <p><strong>Source:</strong> Microsoft Azure Blog</p>
-    <p><strong>Executive Summary:</strong> The article reviews strategies for adopting generative AI in the cloud, highlighting Azure's secure and scalable infrastructure designed for business confidence.</p>
-    <p><strong>Why This Matters to Enterprise IT:</strong> With businesses increasingly adopting AI, understanding how Azure can provide a secure foundation is crucial for IT infrastructures.</p>
-    <p><strong>Infrastructure Impact:</strong> By leveraging Azure's capabilities, organizations can expect improved scalability and security, which are vital for hybrid and public cloud solutions.</p>
-    <p><strong>Security or Operational Considerations:</strong> Risks associated with AI adoption need to be managed through Azure's built-in security features and practices.</p>
-    <a href="https://azure.microsoft.com/en-us/blog/building-secure-scalable-ai-in-the-cloud-with-microsoft-azure/" target="_blank" rel="noopener noreferrer" class="button">Read More</a>
-  </div>
-
-  <h2>Enterprise AI Trends to Watch</h2>
-  <ul>
-    <li>Investment in AI cybersecurity solutions is increasing across enterprises.</li>
-    <li>Generative AI is becoming central to cloud security strategies.</li>
-    <li>Infrastructure enhancements are underway to support AI-driven operations.</li>
-    <li>Hybrid cloud optimizations are essential as enterprises modernize their IT frameworks.</li>
-  </ul>
-</div>
-
-<p>Generated automatically by Jimmy's AI Infrastructure AI Agent</p>
-    </div>
-
-    <div class="footer">
-      Generated automatically by Jimmy's AI Newsletter Agent
-      <div class="site-link">
-        Read online:
-        <a href="https://jac0468.github.io/ai-newsletter/" target="_blank">
-          https://jac0468.github.io/ai-newsletter/
-        </a>
+  <div class="page">
+    <header class="masthead">
+      <div class="brand-row">
+        <div class="brand-copy">
+          <p class="eyebrow">Enterprise AI Briefing</p>
+          <h1>Jimmy's Enterprise AI Briefing</h1>
+          <p>Daily intelligence for cloud, security, infrastructure, identity, and automation teams.</p>
+        </div>
+        <div class="date-chip">Tuesday, May 19, 2026</div>
       </div>
-    </div>
+    </header>
 
+    <main class="content">
+      <section class="brief-intro">
+  <p>As enterprises continue to integrate AI into their core operations, understanding the evolving landscape of cloud infrastructure, security, and automation is essential for leaders looking to leverage these technologies effectively.</p>
+</section>
+
+<section class="takeaways">
+  <h2>What Matters Today</h2>
+  <ul>
+    <li>Microsoft's significant investments in AI and cloud infrastructure underscore the growing need for robust security and scalable solutions in organizations.</li>
+    <li>Generative AI is becoming critical in enhancing cybersecurity strategies, prompting collaborations that optimize technology and reduce operational costs.</li>
+    <li>The adoption of Azure IaaS and PaaS continues to evolve, providing enterprises with innovative tools to modernize IT environments, focused on AI and security.</li>
+    <li>Emerging AI capabilities are reshaping decision-making processes across various sectors, particularly in risk management and operational efficiency.</li>
+  </ul>
+</section>
+
+<section class="section-block">
+  <div class="section-kicker">AI and Cloud Strategy</div>
+  <h2>Microsoft Invests $80B in Cloud and AI Infrastructure Expansion</h2>
+  <div class="story">
+    <div class="story-meta">
+      <span class="source">Data Centers</span>
+      <span class="category">Investment</span>
+      <a href="https://azure.microsoft.com/en-us/blog/product/azure-ai/" target="_blank" rel="noopener noreferrer" class="button">Read More</a>
+</div>
+    <h3>Microsoft Invests $80B in Cloud and AI Infrastructure Expansion</h3>
+    <p><strong>Executive Summary:</strong> Microsoft has announced a significant $80 billion capital expenditure plan for 2025, focusing on expanding its Azure cloud capabilities and AI infrastructure. This move signals a strong commitment to sustainable computing and global data center growth.</p>
+    <p><strong>Why It Matters:</strong> This investment reflects a strategic emphasis on cloud and AI technologies, which will accelerate digital transformation for enterprises and enhance their competitive edge.</p>
+    <p><strong>Ops Lens:</strong> The increased CapEx is expected to improve cloud cost efficiency and scalability on Azure, which will aid organizations in optimizing their infrastructure for AI workloads.</p>
+    <a href="https://www.datacenters.com/news/microsoft-s-80b-capex-signals-continued-cloud-expansion-and-strategic-ai-infrastructure-bet" target="_blank" class="button">Read More</a>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-kicker">Cybersecurity and Risk</div>
+  <h2>Accenture and Microsoft Expand Collaboration on Gen-AI Powered Cyber Solutions</h2>
+  <div class="story">
+    <div class="story-meta">
+      <span class="source">Accenture Newsroom</span>
+      <span class="category">Collaboration</span>
+      <a href="https://azure.microsoft.com/en-us/blog/building-secure-scalable-ai-in-the-cloud-with-microsoft-azure/" target="_blank" rel="noopener noreferrer" class="button">Read More</a>
+</div>
+    <h3>Accenture and Microsoft Expand Collaboration on Gen-AI Powered Cyber Solutions</h3>
+    <p><strong>Executive Summary:</strong> Accenture and Microsoft are co-investing in advanced generative AI-driven cyber solutions, aiming to bolster organizations' defenses against evolving threats and streamline their technology stacks.</p>
+    <p><strong>Why It Matters:</strong> This collaboration highlights the need for innovative cybersecurity solutions in an increasingly complex threat landscape, allowing organizations to consolidate tools and optimize costs.</p>
+    <p><strong>Ops Lens:</strong> As enterprises adopt these generative AI applications, the impact on security protocols and incident response times could be transformative, enhancing proactive threat mitigation.</p>
+    <a href="https://newsroom.accenture.com/news/2025/accenture-and-microsoft-expand-collaboration-on-gen-ai-powered-cyber-solutions" target="_blank" class="button">Read More</a>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-kicker">Microsoft and Azure</div>
+  <h2>Building Secure, Scalable AI in the Cloud with Microsoft Azure</h2>
+  <div class="story">
+    <div class="story-meta">
+      <span class="source">Microsoft Azure Blog</span>
+      <span class="category">Cloud Strategy</span>
+      <a href="https://www.eweek.com/news/microsoft-10b-ai-investment-japan/" target="_blank" rel="noopener noreferrer" class="button">Read More</a>
+</div>
+    <h3>Building Secure, Scalable AI in the Cloud with Microsoft Azure</h3>
+    <p><strong>Executive Summary:</strong> The 2024 Forrester Total Economic Impact study outlines the key steps for organizations to become AI-ready, emphasizing the challenges and advantages of adopting generative AI in cloud settings.</p>
+    <p><strong>Why It Matters:</strong> Understanding these pathways will help enterprises navigate the complexities of AI adoption, leading to more effective cloud strategies and robust security frameworks.</p>
+    <p><strong>Ops Lens:</strong> The need for governance and monitoring is highlighted, guiding enterprises in optimizing their Azure configurations while ensuring compliance and security.</p>
+    <a href="https://azure.microsoft.com/en-us/blog/building-secure-scalable-ai-in-the-cloud-with-microsoft-azure/" target="_blank" class="button">Read More</a>
+  </div>
+</section>
+
+<section class="watchlist">
+  <h2>Trend Watch</h2>
+  <ul>
+    <li>Increasing investment in AI and cloud by major tech firms to enhance infrastructure capabilities.</li>
+    <li>Growing collaboration between IT service providers and tech companies to develop advanced cybersecurity solutions.</li>
+    <li>The emergence of generative AI as a critical component in modern cybersecurity frameworks.</li>
+  </ul>
+</section>
+    </main>
+
+    <footer class="footer">
+      Generated automatically by Jimmy's AI Newsletter Agent<br>
+      <a href="https://jac0468.github.io/ai-newsletter/" target="_blank">Read the latest issue online</a>
+    </footer>
   </div>
 </body>
 </html>
