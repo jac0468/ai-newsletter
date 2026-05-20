@@ -1,0 +1,18 @@
+{
+  "subscribers": [
+    {
+      "email": "jac0468@hotmail.com",
+      "name": "Jimmy",
+      "status": "active",
+      "source": "owner",
+      "subscribedAt": "2026-05-20T00:00:00.000Z"
+    },
+    {
+      "email": "jimmy.chapin@trin.net",
+      "name": "Jimmy Work",
+      "status": "active",
+      "source": "owner",
+      "subscribedAt": "2026-05-20T00:00:00.000Z"
+    }
+  ]
+}
