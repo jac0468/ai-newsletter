@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jimmy's AI Ops Report</title>
+  <style>
+    body { margin:0; padding:0; background:#edf1f5; color:#172033; font-family:Arial,Helvetica,sans-serif; line-height:1.58; }
+    .page { max-width:980px; margin:0 auto; background:#fff; box-shadow:0 10px 34px rgba(15,23,42,.14); }
+    .masthead { background:#101b2d; color:#fff; padding:34px 44px 28px; border-bottom:5px solid #2f6fed; }
+    .eyebrow { margin:0 0 8px; color:#9fb7d8; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .masthead h1 { margin:0; font-size:36px; line-height:1.12; font-weight:800; }
+    .masthead p { margin:12px 0 0; color:#dbe6f7; font-size:15px; max-width:720px; }
+    .topline { margin-top:18px; color:#dbe6f7; font-size:13px; font-weight:700; }
+    .nav { padding:14px 44px; border-bottom:1px solid #dfe7f2; background:#f8fafc; font-size:13px; font-weight:800; }
+    .nav a { margin-right:18px; color:#234e76; text-decoration:none; }
+    .content { padding:34px 44px 42px; }
+    .brief-intro { margin:0 0 24px; padding:18px 20px; background:#f7f9fc; border-left:4px solid #2f6fed; border-radius:6px; }
+    h2 { margin:0 0 16px; color:#101b2d; font-size:22px; line-height:1.25; }
+    .takeaways,.watchlist,.signal-board,.weekly-deep-dive,.social-kit { margin:0 0 30px; padding:22px 24px; background:#f5f8fc; border:1px solid #dfe7f2; border-radius:8px; }
+    .jimmy-take { margin:0 0 30px; padding:22px 24px; background:#fff8e8; border:1px solid #f1d79a; border-left:5px solid #c98a12; border-radius:8px; }
+    .jimmy-take p { margin:0; color:#2f3b4f; font-size:15.5px; }
+    .weekly-pick { margin:0 0 30px; padding:24px; background:#eef7f6; border:1px solid #b7ded8; border-left:5px solid #0f766e; border-radius:8px; }
+    .pick-label { margin:0 0 8px; color:#0f766e; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:0; }
+    .weekly-pick p { color:#2f3b4f; }
+    .score-strip { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; padding:12px; background:#f7f9fc; border:1px solid #dfe7f2; border-radius:8px; }
+    .score-strip span { display:inline-block; padding:5px 8px; background:#fff; border:1px solid #d8e0eb; border-radius:999px; color:#334155; font-size:12px; font-weight:800; }
+    .signal-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .signal { background:#fff; border:1px solid #d8e0eb; border-radius:8px; padding:16px; }
+    .signal strong { display:block; color:#13233a; margin-bottom:6px; }
+    .signal span { color:#40516a; font-size:14px; }
+    .section-block { margin:34px 0 10px; padding-top:6px; border-top:1px solid #dfe7f2; }
+    .section-kicker { margin:18px 0 6px; color:#2f6fed; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .story { margin:18px 0 24px; padding:24px; background:#fff; border:1px solid #d8e0eb; border-radius:8px; box-shadow:0 4px 16px rgba(15,23,42,.07); }
+    .story-meta { margin:0 0 12px; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .source,.category { border-radius:999px; padding:5px 9px; margin-right:8px; display:inline-block; }
+    .source { color:#101b2d; background:#eaf0f8; }
+    .category { color:#234e76; background:#e8f5f4; }
+    .story h3,.story h2 { margin:0 0 14px; color:#13233a; font-size:22px; line-height:1.28; }
+    .story p { margin:12px 0; font-size:15px; color:#27364c; }
+    .button { display:inline-block; margin-top:12px; padding:10px 15px; color:#fff!important; background:#2458d3; border-radius:6px; text-decoration:none!important; font-weight:800; font-size:14px; }
+    a { color:#2458d3; text-decoration:none; font-weight:700; }
+    .about { padding:28px 44px; border-top:1px solid #dfe7f2; background:#f8fafc; color:#334155; }
+    .about h2 { margin-bottom:8px; }
+    .footer { padding:22px 44px; background:#101b2d; color:#cbd5e1; font-size:13px; text-align:center; }
+    @media only screen and (max-width:700px){ .masthead,.nav,.content,.about,.footer{padding-left:22px;padding-right:22px}.masthead h1{font-size:29px}.signal-grid{grid-template-columns:1fr}.story,.takeaways,.watchlist,.jimmy-take,.weekly-pick,.signal-board,.weekly-deep-dive,.social-kit{padding:18px}.nav a{display:inline-block;margin-bottom:8px} }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <p class="eyebrow">Practical AI, Azure, Security, and Automation Intelligence</p>
+      <h1>Jimmy's AI Ops Report</h1>
+      <p>Built for real IT teams tracking enterprise AI without the noise: cloud strategy, security operations, governance, infrastructure, and tools worth testing.</p>
+      <div class="topline">Thursday, May 21, 2026</div>
+    </header>
+    <nav class="nav"><a href="#latest">Latest Issue</a><a href="archive/">Archive</a><a href="subscribe/">Subscribe</a><a href="https://jac0468.github.io/ai-newsletter/archive/20260521-120042Z.html">Permanent Link</a><a href="#share">Share Kit</a><a href="#about">About</a></nav>
+    <main class="content"><section class="brief-intro" id="latest">
+  <p>Today, enterprise IT teams are focused on redefining security and optimization strategies as AI becomes increasingly integrated into operations and cloud environments.</p>
+</section>
+
+<section class="takeaways">
+  <h2>What Matters Today</h2>
+  <ul>
+    <li>Microsoft is emphasizing its commitment to AI security and cloud infrastructure, which is crucial for maintaining operational integrity.</li>
+    <li>The expansion of investments in AI capabilities indicates a significant shift toward automation and governance in enterprise systems.</li>
+    <li>Security operational updates must be prioritized to combat evolving AI-driven threats, especially for on-premises deployments.</li>
+    <li>Monitoring AI integrations is essential for managing costs and ensuring compliance in cloud environments.</li>
+  </ul>
+</section>
+
+<section class="jimmy-take">
+  <h2>Jimmy's Take</h2>
+  <p>As we navigate the complexities of AI in our operations, it’s essential for IT teams to maintain a vigilant approach towards security updates and cost management. The shifts in Microsoft’s partnerships and investments underscore the need for us to reassess our infrastructure and governance strategies. It's critical to assess our cloud deployments for potential vulnerabilities, particularly with new AI integrations, while ensuring our teams are prepared for the operational and financial implications these changes may bring.</p>
+</section>
+
+<section class="weekly-pick">
+  <p class="pick-label">Jimmy's Pick</p>
+  <h2>Building secure, scalable AI in the cloud with Microsoft Azure</h2>
+  <p>This article highlights the significant challenges and strategies businesses face when adopting generative AI in their cloud environments. Understanding these insights can directly impact how IT managers prepare their infrastructures for scaling secure AI applications effectively.</p>
+  <a href="https://azure.microsoft.com/en-us/blog/building-secure-scalable-ai-in-the-cloud-with-microsoft-azure/" target="_blank" class="button">Read Jimmy's Pick</a>
+</section>
+
+<section class="signal-board">
+  <h2>Ops Signal Board</h2>
+  <div class="signal-grid">
+    <div class="signal"><strong>Security Red Flag</strong><span>On-premises deployments may face increased vulnerability to AI-driven threats, necessitating rigorous update protocols.</span></div>
+    <div class="signal"><strong>Tool Worth Watching</strong><span>Microsoft Sentinel offers advanced automation for cybersecurity, making it a key tool for proactive threat detection.</span></div>
+    <div class="signal"><strong>One Thing I'd Test</strong><span>Consider running a security audit on current AI integrations to identify and mitigate potential risks in cloud environments.</span></div>
+    <div class="signal"><strong>Hype Meter</strong><span>Medium; while the focus on AI is real and pressing, the market shifts can create unpredictability.</span></div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-kicker">Cybersecurity and Risk</div>
+  <h2>AI-powered defense for an AI-accelerated threat landscape</h2>
+  <div class="story">
+    <div class="story-meta">
+      <span class="source">Microsoft Security Blog</span>
+      <span class="category">Cybersecurity</span>
+    </div>
+    <h3>AI-powered defense for an AI-accelerated threat landscape</h3>
+    <p><strong>Executive Summary:</strong> Microsoft emphasizes the importance of automatic updates for cloud services to ensure security against AI threats. Organizations with self-hosted deployments must stay current with security patches.</p>
+    <p><strong>Why It Matters:</strong> Keeping up with automatic security updates is essential to protect against emerging AI vulnerabilities, which can compromise enterprise data integrity.</p>
+    <p><strong>Ops Lens:</strong> The requirement for on-premises clients to manually apply updates highlights significant operational impacts on compliance and security governance.</p>
+    <div class="score-strip">
+      <span>Enterprise Impact: High</span>
+      <span>Security Risk: High</span>
+      <span>Cost Impact: Medium</span>
+      <span>Actionability: High</span>
+      <span>Hype Level: Low</span>
+    </div>
+    <a href="https://www.microsoft.com/en-us/security/blog/2026/04/22/ai-powered-defense-for-an-ai-accelerated-threat-landscape/" target="_blank" class="button">Read More</a>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-kicker">AI and Cloud Strategy</div>
+  <h2>Next ‘26: Redefining security for the AI era with Google Cloud and Wiz</h2>
+  <div class="story">
+    <div class="story-meta">
+      <span class="source">Google Cloud Blog</span>
+      <span class="category">AI and Cloud</span>
+    </div>
+    <h3>Next ‘26: Redefining security for the AI era with Google Cloud and Wiz</h3>
+    <p><strong>Executive Summary:</strong> Wiz expands its offerings to provide visibility across multiple platforms, including Azure and Salesforce, highlighting the importance of security in diverse cloud environments.</p>
+    <p><strong>Why It Matters:</strong> This shift underscores the need for organizations to implement comprehensive security strategies that encompass various cloud solutions to reduce risks.</p>
+    <p><strong>Ops Lens:</strong> Effective visibility tools can enhance monitoring and governance in multi-cloud setups, which is crucial for avoiding security oversights.</p>
+    <div class="score-strip">
+      <span>Enterprise Impact: Medium</span>
+      <span>Security Risk: Medium</span>
+      <span>Cost Impact: Low</span>
+      <span>Actionability: Medium</span>
+      <span>Hype Level: Medium</span>
+    </div>
+    <a href="https://cloud.google.com/blog/products/identity-security/next26-redefining-security-for-the-ai-era-with-google-cloud-and-wiz" target="_blank" class="button">Read More</a>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-kicker">Microsoft and Azure</div>
+  <h2>Microsoft invests $80B in cloud and AI infrastructure expansion</h2>
+  <div class="story">
+    <div class="story-meta">
+      <span class="source">DataCenters.com</span>
+      <span class="category">Infrastructure</span>
+    </div>
+    <h3>Microsoft Invests $80B in Cloud and AI Infrastructure Expansion</h3>
+    <p><strong>Executive Summary:</strong> Microsoft has announced a significant investment focused on enhancing Azure cloud and AI capabilities along with global data center expansion.</p>
+    <p><strong>Why It Matters:</strong> This investment reflects a commitment to improving infrastructure which can lead to better performance and cost-effectiveness in enterprise services.</p>
+    <p><strong>Ops Lens:</strong> Increased investment in AI infrastructure suggests growing reliance on Azure for scalable solutions, which is critical for ensuring compliance and responsiveness in cloud operations.</p>
+    <div class="score-strip">
+      <span>Enterprise Impact: High</span>
+      <span>Security Risk: Low</span>
+      <span>Cost Impact: Medium</span>
+      <span>Actionability: Medium</span>
+      <span>Hype Level: Medium</span>
+    </div>
+    <a href="https://www.datacenters.com/news/microsoft-s-80b-capex-signals-continued-cloud-expansion-and-strategic-ai-infrastructure-bet" target="_blank" class="button">Read More</a>
+  </div>
+</section>
+
+<section class="weekly-deep-dive">
+  <h2>Deep Dive Idea</h2>
+  <p>A focused exploration on the integration of AI in cybersecurity measures and how to effectively manage the associated risks and costs in enterprise environments would be valuable for teams preparing for upcoming challenges.</p>
+</section>
+
+<section class="social-kit" id="share">
+  <h2>Share Kit</h2>
+  <p><strong>LinkedIn Post:</strong> Today's report highlights critical shifts in AI and cloud security as companies like Microsoft ramp up investments. IT teams must adapt their strategies to address emerging vulnerabilities and ensure their infrastructures are AI-ready.</p>
+  <p><strong>Short Post:</strong> Today's insights focus on the urgent need for IT teams to bolster security as Microsoft and others invest heavily in AI capabilities.</p>
+</section>
+
+<section class="watchlist">
+  <h2>Trend Watch</h2>
+  <ul>
+    <li>Increasing integration of AI in cybersecurity tools will require IT teams to rethink their security measures.</li>
+    <li>Financial investments in AI infrastructure signal a growing priority for organizations to automate and enhance operations.</li>
+    <li>Multi-cloud security strategies will become essential as platforms expand their capabilities and offerings.</li>
+  </ul>
+</section></main>
+    <section class="about" id="about">
+      <h2>About This Report</h2>
+      <p>Jimmy's AI Ops Report is a practical briefing for infrastructure, cloud, security, and automation teams. The goal is simple: turn noisy AI news into useful signals, source links, and operational next steps.</p>
+    </section>
+    <footer class="footer">Generated automatically by Jimmy's AI Newsletter Agent</footer>
+  </div>
+</body>
+</html>
