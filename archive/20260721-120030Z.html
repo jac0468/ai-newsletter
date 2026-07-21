@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jimmy's AI Field Guide</title>
+  <style>
+    body { margin:0; padding:0; background:#edf1f5; color:#172033; font-family:Arial,Helvetica,sans-serif; line-height:1.58; }
+    .page { max-width:980px; margin:0 auto; background:#fff; box-shadow:0 10px 34px rgba(15,23,42,.14); }
+    .masthead { background:#101b2d; color:#fff; padding:34px 44px 28px; border-bottom:5px solid #2f6fed; }
+    .eyebrow { margin:0 0 8px; color:#9fb7d8; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .masthead h1 { margin:0; font-size:36px; line-height:1.12; font-weight:800; }
+    .masthead p { margin:12px 0 0; color:#dbe6f7; font-size:15px; max-width:720px; }
+    .topline { margin-top:18px; color:#dbe6f7; font-size:13px; font-weight:700; }
+    .nav { padding:14px 44px; border-bottom:1px solid #dfe7f2; background:#f8fafc; font-size:13px; font-weight:800; }
+    .nav a { margin-right:18px; color:#234e76; text-decoration:none; }
+    .content { padding:34px 44px 42px; }
+    .brief-intro { margin:0 0 24px; padding:18px 20px; background:#f7f9fc; border-left:4px solid #2f6fed; border-radius:6px; }
+    h2 { margin:0 0 16px; color:#101b2d; font-size:22px; line-height:1.25; }
+    .takeaways,.watchlist,.signal-board,.weekly-deep-dive,.social-kit { margin:0 0 30px; padding:22px 24px; background:#f5f8fc; border:1px solid #dfe7f2; border-radius:8px; }
+    .jimmy-take { margin:0 0 30px; padding:22px 24px; background:#fff8e8; border:1px solid #f1d79a; border-left:5px solid #c98a12; border-radius:8px; }
+    .jimmy-take p { margin:0; color:#2f3b4f; font-size:15.5px; }
+    .weekly-pick { margin:0 0 30px; padding:24px; background:#eef7f6; border:1px solid #b7ded8; border-left:5px solid #0f766e; border-radius:8px; }
+    .pick-label { margin:0 0 8px; color:#0f766e; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:0; }
+    .weekly-pick p { color:#2f3b4f; }
+    .score-strip { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; padding:12px; background:#f7f9fc; border:1px solid #dfe7f2; border-radius:8px; }
+    .score-strip span { display:inline-block; padding:5px 8px; background:#fff; border:1px solid #d8e0eb; border-radius:999px; color:#334155; font-size:12px; font-weight:800; }
+    .signal-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .signal { background:#fff; border:1px solid #d8e0eb; border-radius:8px; padding:16px; }
+    .signal strong { display:block; color:#13233a; margin-bottom:6px; }
+    .signal span { color:#40516a; font-size:14px; }
+    .section-block { margin:34px 0 10px; padding-top:6px; border-top:1px solid #dfe7f2; }
+    .section-kicker { margin:18px 0 6px; color:#2f6fed; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .story { margin:18px 0 24px; padding:24px; background:#fff; border:1px solid #d8e0eb; border-radius:8px; box-shadow:0 4px 16px rgba(15,23,42,.07); }
+    .story-meta { margin:0 0 12px; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .source,.category { border-radius:999px; padding:5px 9px; margin-right:8px; display:inline-block; }
+    .source { color:#101b2d; background:#eaf0f8; }
+    .category { color:#234e76; background:#e8f5f4; }
+    .story h3,.story h2 { margin:0 0 14px; color:#13233a; font-size:22px; line-height:1.28; }
+    .story p { margin:12px 0; font-size:15px; color:#27364c; }
+    .button { display:inline-block; margin-top:12px; padding:10px 15px; color:#fff!important; background:#2458d3; border-radius:6px; text-decoration:none!important; font-weight:800; font-size:14px; }
+    a { color:#2458d3; text-decoration:none; font-weight:700; }
+    .about { padding:28px 44px; border-top:1px solid #dfe7f2; background:#f8fafc; color:#334155; }
+    .about h2 { margin-bottom:8px; }
+    .footer { padding:22px 44px; background:#101b2d; color:#cbd5e1; font-size:13px; text-align:center; }
+    @media only screen and (max-width:700px){ .masthead,.nav,.content,.about,.footer{padding-left:22px;padding-right:22px}.masthead h1{font-size:29px}.signal-grid{grid-template-columns:1fr}.story,.takeaways,.watchlist,.jimmy-take,.weekly-pick,.signal-board,.weekly-deep-dive,.social-kit{padding:18px}.nav a{display:inline-block;margin-bottom:8px} }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <p class="eyebrow">Practical AI Skills, Prompting, Tools, and Plain-English Lessons</p>
+      <h1>Jimmy's AI Field Guide</h1>
+      <p>Built for people who want to get genuinely better at AI: better prompts, clearer thinking, smarter tool choices, and simple lessons on how LLMs work.</p>
+      <div class="topline">Tuesday, July 21, 2026</div>
+    </header>
+    <nav class="nav"><a href="#latest">Latest Issue</a><a href="archive/">Archive</a><a href="subscribe/">Subscribe</a><a href="https://jac0468.github.io/ai-newsletter/archive/20260721-120030Z.html">Permanent Link</a><a href="#share">Share Kit</a><a href="#about">About</a></nav>
+    <main class="content"><section class="brief-intro" id="latest">
+  <p>Today, we're diving into the art of prompting, a fundamental skill that can transform how you interact with AI tools like ChatGPT and Claude. By mastering structured prompting techniques, you'll enhance your productivity and unlock the true potential of these models in your everyday tasks.</p>
+</section>
+
+<section class="takeaways">
+  <h2>What You'll Learn Today</h2>
+  <ul>
+    <li>How structured prompting can improve your interactions with AI.</li>
+    <li>Insights into the latest prompting techniques for better results.</li>
+    <li>The importance of clarity and context when formulating AI prompts.</li>
+    <li>Practical applications of advanced prompting methods in your workflow.</li>
+  </ul>
+</section>
+
+<section class="jimmy-take">
+  <h2>Jimmy's Take</h2>
+  <p>As I explore the world of prompting, I find it's not just about asking questions but also about how we ask them. Good prompts can elevate your AI experience by making the interaction smoother and more productive. With emerging techniques, there's a lot to learn that can make us all better AI operators, and it starts with refining our prompts!</p>
+</section>
+
+<section class="weekly-pick">
+  <p class="pick-label">Jimmy's Pick: Skill of the Day</p>
+  <h2>Mastering Structured Prompts</h2>
+  <p>Practice crafting structured prompts using the RACE framework: recap, ask, clarify, and expand. This method is highlighted in one of today’s articles and can lead to more focused responses from AI tools.</p>
+  <a href="https://www.nucamp.co/blog/ai-essentials-for-work-2025-mastering-chatgpt-and-claude-a-professionals-guide-to-prompting-in-2025" target="_blank" class="button">Read the Source</a>
+</section>
+
+<section class="signal-board">
+  <h2>AI Skill Board</h2>
+  <div class="signal-grid">
+    <div class="signal"><strong>Prompt Move</strong><span>Ask AI, "What specific steps should I take to improve my productivity today?"</span></div>
+    <div class="signal"><strong>Tool to Try</strong><span>Explore the Claude platform for advanced prompting features.</span></div>
+    <div class="signal"><strong>Beginner Concept</strong><span>Prompting is the way you ask questions to AI tools to get useful responses.</span></div>
+    <div class="signal"><strong>Mistake to Avoid</strong><span>Don't ask vague questions; they often lead to unsatisfactory answers.</span></div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-kicker">Prompting and Better Questions</div>
+  <h2>Mastering ChatGPT and Claude: A Professional's Guide to Prompting in 2025</h2>
+  <div class="story">
+    <div class="story-meta">
+      <span class="source">Nucamp</span>
+      <span class="category">Prompting and Better Questions</span>
+    </div>
+    <h3>Mastering ChatGPT and Claude: A Professional's Guide to Prompting in 2025</h3>
+    <p><strong>Executive Summary:</strong> This guide emphasizes the importance of mastering prompt engineering to enhance productivity and security while using ChatGPT and Claude through methods like few-shot learning and contextual prompts.</p>
+    <p><strong>Beginner Translation:</strong> Essentially, this article teaches us how to ask AI the right way to get better results, which in turn can save us time and make our work easier.</p>
+    <p><strong>Why It Matters:</strong> Understanding these techniques is crucial for anyone looking to leverage AI for efficiency at work. More effective prompts can lead to higher quality outputs from AI tools.</p>
+    <p><strong>Try This:</strong> Write a prompt using the RACE framework and see how the responses vary compared to your previous prompts.</p>
+    <div class="score-strip">
+      <span>Beginner Value: High</span>
+      <span>Practical Use: High</span>
+      <span>Tool Impact: High</span>
+      <span>Actionability: High</span>
+      <span>Hype Level: Low</span>
+    </div>
+    <a href="https://www.nucamp.co/blog/ai-essentials-for-work-2025-mastering-chatgpt-and-claude-a-professionals-guide-to-prompting-in-2025" target="_blank" class="button">Read More</a>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-kicker">Prompting and Better Questions</div>
+  <h2>Prompting best practices - Claude Platform Docs</h2>
+  <div class="story">
+    <div class="story-meta">
+      <span class="source">Claude Docs</span>
+      <span class="category">Prompting and Better Questions</span>
+    </div>
+    <h3>Prompting best practices - Claude Platform Docs</h3>
+    <p><strong>Executive Summary:</strong> This document outlines best practices for crafting effective prompts in Claude, emphasizing clarity and structured approaches to improve AI responses.</p>
+    <p><strong>Beginner Translation:</strong> It's all about providing clear instructions and examples to Claude so it can understand exactly what you want.</p>
+    <p><strong>Why It Matters:</strong> By following these best practices, you can avoid misunderstandings with the AI and get much better results in your projects.</p>
+    <p><strong>Try This:</strong> Check out the best practices and rewrite one of your previous prompts using these guidelines.</p>
+    <div class="score-strip">
+      <span>Beginner Value: High</span>
+      <span>Practical Use: High</span>
+      <span>Tool Impact: High</span>
+      <span>Actionability: High</span>
+      <span>Hype Level: Low</span>
+    </div>
+    <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" target="_blank" class="button">Read More</a>
+  </div>
+</section>
+
+<section class="prompt-lab">
+  <h2>Prompt Lab</h2>
+  <p><strong>Weak Prompt:</strong> "Tell me about using AI."</p>
+  <p><strong>Better Prompt:</strong> "As a productivity expert, can you outline three specific ways I can use AI tools to enhance my daily workflow?"</p>
+  <p><strong>Why It Works:</strong> The better prompt gives the AI more context (my role), specifies the request (ways to enhance workflow), and defines the output I want, leading to a more relevant and actionable answer.</p>
+</section>
+
+<section class="weekly-deep-dive">
+  <h2>Beginner Deep Dive Idea</h2>
+  <p>Consider expanding into the various frameworks and structures used in prompt engineering to see how they can fit different use cases and industries.</p>
+</section>
+
+<section class="social-kit" id="share">
+  <h2>Share Kit</h2>
+  <p><strong>LinkedIn Post:</strong> Excited to explore the essentials of prompting in AI this week! Mastering how we ask AI questions can lead to remarkable improvements in productivity and creativity. Let's refine our techniques together!</p>
+  <p><strong>Short Post:</strong> This week, let’s focus on mastering AI prompts to boost our efficiency! Small tweaks can lead to big results.</p>
+</section>
+
+<section class="watchlist">
+  <h2>Practice Plan</h2>
+  <ul>
+    <li>Spend 15 minutes revisiting old prompts and refining them using structured techniques.</li>
+    <li>Experiment with different AI tools to see how they respond to varied prompting styles.</li>
+    <li>Join an online community or forum to share and learn different prompting strategies.</li>
+    <li>Create a list of 5 prompts you want to practice this week and track the responses.</li>
+  </ul>
+</section>
+<section class="section-block">
+  <div class="section-kicker">Additional Signals</div>
+  <h2>More Stories Worth Reviewing</h2>
+  <div class="story">
+    <div class="story-meta">
+      <span class="source">Source</span>
+      <span class="category">Additional Source</span>
+    </div>
+    <h3>AI Learning Resources &amp; Guides from Anthropic</h3>
+    <p><strong>Executive Summary:</strong> Access comprehensive guides, tutorials, and best practices for working with Claude. Learn how to craft effective prompts and maximize AI interactions in your workflow.</p>
+    <p><strong>Why It Matters:</strong> This gives readers another real source to review while learning how AI tools, prompting habits, and practical workflows are changing.</p>
+    <p><strong>Ops Lens:</strong> Validate important details, compare sources, and test the idea in a small AI workflow before relying on it.</p>
+    <div class="score-strip"><span>Beginner Value: Medium</span><span>Practical Use: Medium</span><span>Tool Impact: Medium</span><span>Actionability: Medium</span><span>Hype Level: Medium</span></div>
+    <a href="https://www.anthropic.com/learn" target="_blank" rel="noopener noreferrer" class="button">Read More</a>
+  </div>
+</section></main>
+    <section class="about" id="about">
+      <h2>About This Report</h2>
+      <p>Jimmy's AI Field Guide is a practical briefing for infrastructure, cloud, security, and automation teams. The goal is simple: turn noisy AI news into useful signals, source links, and operational next steps.</p>
+    </section>
+    <footer class="footer">Generated automatically by Jimmy's AI Learning Agent</footer>
+  </div>
+</body>
+</html>
