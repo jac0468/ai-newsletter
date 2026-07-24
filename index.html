@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jimmy's AI Field Guide</title>
   <style>
-    body { margin:0; padding:0; background:#edf1f5; color:#172033; font-family:Arial,Helvetica,sans-serif; line-height:1.58; }
-    .page { max-width:980px; margin:0 auto; background:#fff; box-shadow:0 10px 34px rgba(15,23,42,.14); }
-    .masthead { background:#101b2d; color:#fff; padding:34px 44px 28px; border-bottom:5px solid #2f6fed; }
+    body { margin:0; padding:0; background:#f3f0e8; color:#172033; font-family:Arial,Helvetica,sans-serif; line-height:1.58; }
+    .page { max-width:760px; margin:0 auto; background:#fff; box-shadow:0 10px 34px rgba(15,23,42,.14); }
+    .masthead { background:#17324d; color:#fff; padding:34px 44px 28px; border-bottom:5px solid #18a999; }
     .eyebrow { margin:0 0 8px; color:#9fb7d8; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
     .masthead h1 { margin:0; font-size:36px; line-height:1.12; font-weight:800; }
     .masthead p { margin:12px 0 0; color:#dbe6f7; font-size:15px; max-width:720px; }
@@ -23,6 +23,16 @@
     .weekly-pick { margin:0 0 30px; padding:24px; background:#eef7f6; border:1px solid #b7ded8; border-left:5px solid #0f766e; border-radius:8px; }
     .pick-label { margin:0 0 8px; color:#0f766e; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:0; }
     .weekly-pick p { color:#2f3b4f; }
+    .lesson-hero,.lesson,.prompt-lab,.practice-plan,.further-reading { margin:0 0 30px; padding:24px; border-radius:10px; }
+    .lesson-hero { background:#e9f7f4; border:1px solid #b6dfd7; border-left:5px solid #18a999; }
+    .lesson-label { color:#167d73; font-size:12px; font-weight:900; letter-spacing:.08em; }
+    .lesson { background:#fff; border:1px solid #d8e0eb; }
+    .example-box,.copy-prompt { margin:16px 0; padding:18px; background:#f6f1e7; border-left:4px solid #d39a35; border-radius:6px; }
+    .prompt-lab { background:#eef5fb; border:1px solid #cbdceb; }
+    .practice-plan { background:#17324d; color:#fff; }
+    .practice-plan h2,.practice-plan .section-kicker { color:#fff; }
+    .skill-tags { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; }
+    .skill-tags span { padding:5px 9px; background:#e9f7f4; color:#12695f; border-radius:999px; font-size:11px; font-weight:900; }
     .score-strip { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; padding:12px; background:#f7f9fc; border:1px solid #dfe7f2; border-radius:8px; }
     .score-strip span { display:inline-block; padding:5px 8px; background:#fff; border:1px solid #d8e0eb; border-radius:999px; color:#334155; font-size:12px; font-weight:800; }
     .signal-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
@@ -38,152 +48,110 @@
     .category { color:#234e76; background:#e8f5f4; }
     .story h3,.story h2 { margin:0 0 14px; color:#13233a; font-size:22px; line-height:1.28; }
     .story p { margin:12px 0; font-size:15px; color:#27364c; }
-    .button { display:inline-block; margin-top:12px; padding:10px 15px; color:#fff!important; background:#2458d3; border-radius:6px; text-decoration:none!important; font-weight:800; font-size:14px; }
-    a { color:#2458d3; text-decoration:none; font-weight:700; }
+    .button { display:inline-block; margin-top:12px; padding:10px 15px; color:#fff!important; background:#167d73; border-radius:6px; text-decoration:none!important; font-weight:800; font-size:14px; }
+    a { color:#167d73; text-decoration:none; font-weight:700; }
     .about { padding:28px 44px; border-top:1px solid #dfe7f2; background:#f8fafc; color:#334155; }
     .about h2 { margin-bottom:8px; }
-    .footer { padding:22px 44px; background:#101b2d; color:#cbd5e1; font-size:13px; text-align:center; }
+    .footer { padding:22px 44px; background:#17324d; color:#cbd5e1; font-size:13px; text-align:center; }
     @media only screen and (max-width:700px){ .masthead,.nav,.content,.about,.footer{padding-left:22px;padding-right:22px}.masthead h1{font-size:29px}.signal-grid{grid-template-columns:1fr}.story,.takeaways,.watchlist,.jimmy-take,.weekly-pick,.signal-board,.weekly-deep-dive,.social-kit{padding:18px}.nav a{display:inline-block;margin-bottom:8px} }
   </style>
 </head>
 <body>
   <div class="page">
     <header class="masthead">
-      <p class="eyebrow">Practical AI Skills, Prompting, Tools, and Plain-English Lessons</p>
+      <p class="eyebrow">One Focused AI Lesson · Practical Skills · Plain English</p>
       <h1>Jimmy's AI Field Guide</h1>
-      <p>Built for people who want to get genuinely better at AI: better prompts, clearer thinking, smarter tool choices, and simple lessons on how LLMs work.</p>
+      <p>One useful idea at a time—explained clearly, grounded in sources, and finished with something you can practice today.</p>
       <div class="topline">Friday, July 24, 2026</div>
     </header>
-    <nav class="nav"><a href="#latest">Latest Issue</a><a href="archive/">Archive</a><a href="subscribe/">Subscribe</a><a href="https://jac0468.github.io/ai-newsletter/archive/20260724-120050Z.html">Permanent Link</a><a href="#share">Share Kit</a><a href="#about">About</a></nav>
-    <main class="content"><section class="brief-intro" id="latest">
-  <p>This issue focuses on elevating your prompting skills for better AI interactions. Understanding how to effectively communicate with AI can dramatically enhance your workflows, whether you're drafting an email or developing a project. Let's explore some practical insights that will help you become a more confident AI operator.</p>
+    <nav class="nav"><a href="#latest">Latest Issue</a><a href="archive/">Archive</a><a href="subscribe/">Subscribe</a><a href="https://jac0468.github.io/ai-newsletter/archive/20260724-232638Z.html">Permanent Link</a><a href="#about">About</a></nav>
+    <main class="content"><section class="lesson-hero" id="latest">
+  <p class="lesson-label">TODAY'S PRACTICAL LESSON</p>
+  <h2>Understanding Machine Learning and LLMs</h2>
+  <p>This lesson will help you grasp the basics of how machine learning models, specifically large language models (LLMs), function and how they can be utilized effectively.</p>
 </section>
 
 <section class="takeaways">
-  <h2>What You'll Learn Today</h2>
+  <h2>In 60 Seconds</h2>
   <ul>
-    <li>How to structure prompts for clearer and more effective AI responses.</li>
-    <li>The fundamentals of prompting techniques to avoid inaccuracies in AI outputs.</li>
-    <li>Best practices for using AI tools like Claude and how they can fit into your work routine.</li>
-    <li>Resources to further develop your skills in prompt engineering.</li>
+    <li>Machine learning uses algorithms to learn from data and make predictions or decisions.</li>
+    <li>Large Language Models (LLMs) are a type of machine learning model trained on vast text datasets to understand and generate human-like language.</li>
+    <li>Understanding how to use LLMs with additional data can enhance their effectiveness in real-world applications.</li>
   </ul>
+</section>
+
+<section class="lesson">
+  <div class="section-kicker">LEARN</div>
+  <h2>Today's Lesson</h2>
+  <p>Machine learning (ML) is a subset of artificial intelligence that enables systems to learn from data without being explicitly programmed. It involves algorithms that analyze data, find patterns, and make predictions. This process can be applied to various tasks, from recommending products to recognizing speech.</p>
+  <p>Among the different types of models, large language models (LLMs) stand out due to their ability to process and generate natural language. LLMs are built on deep learning, a branch of machine learning that employs neural networks with multiple layers to capture complex relationships in data.</p>
+  <p>To enhance LLMs, businesses often use a technique known as Retrieval-Augmented Generation (RAG). This approach combines the power of LLMs with additional relevant data, allowing them to provide more accurate and context-aware responses. By integrating their own datasets, organizations boost the models' performance and relevance.</p>
+  <div class="example-box"><strong>Example:</strong> If a company has a knowledge base of FAQs, they can feed this data into a RAG pipeline to improve responses generated by an LLM in customer support chats.</div>
+</section>
+
+<section class="section-block">
+  <div class="section-kicker">WHAT CHANGED</div>
+  <h2>Three Useful Signals</h2>
+  <article class="story">
+    <div class="story-meta"><span class="source">lakeFS</span><span class="category">LEARN</span></div>
+    <h3>RAG Pipeline: Example, Tools & How to Build It - lakeFS</h3>
+    <p><strong>What happened:</strong> This article explains how businesses can enhance the value of LLMs by employing Retrieval-Augmented Generation (RAG). It discusses the importance of integrating proprietary data into LLMs.</p>
+    <p><strong>Why it matters:</strong> Understanding RAG allows beginners to leverage existing data for improved AI performance.</p>
+    <p><strong>Try it:</strong> Explore how to implement a simple RAG pipeline in your own projects.</p>
+    <a href="https://lakefs.io/blog/what-is-rag-pipeline/" target="_blank" class="button">Read More</a>
+  </article>
+  <article class="story">
+    <div class="story-meta"><span class="source">Medium</span><span class="category">LEARN</span></div>
+    <h3>Retrieval-Augmented Generation (RAG): A Complete Beginner's Guide</h3>
+    <p><strong>What happened:</strong> This guide introduces Retrieval-Augmented Generation (RAG) and highlights how deep learning aids in analyzing complex data patterns.</p>
+    <p><strong>Why it matters:</strong> Beginners can learn essential concepts that are the backbone of modern AI systems.</p>
+    <p><strong>Try it:</strong> Read this guide to get familiar with deep learning basics.</p>
+    <a href="https://medium.com/@ankammarao1404/retrieval-augmented-generation-rag-a-complete-beginners-guide-to-building-smarter-ai-systems-50967d619566" target="_blank" class="button">Read More</a>
+  </article>
+  <article class="story">
+    <div class="story-meta"><span class="source">Eduonix</span><span class="category">LEARN</span></div>
+    <h3>How to Build a RAG System (Step-by-Step Guide)</h3>
+    <p><strong>What happened:</strong> This guide provides a step-by-step approach to building a RAG system using Python and LLMs.</p>
+    <p><strong>Why it matters:</strong> Practical guides like this demystify complex concepts for beginners.</p>
+    <p><strong>Try it:</strong> Try building a simple RAG system by following this guide’s instructions.</p>
+    <a href="https://blog.eduonix.com/2026/07/how-to-build-a-rag-system-step-by-step-guide/" target="_blank" class="button">Read More</a>
+  </article>
+</section>
+
+<section class="prompt-lab">
+  <div class="section-kicker">TRY</div>
+  <h2>Prompt Lab</h2>
+  <p><strong>Basic prompt:</strong> Explain deep learning.</p>
+  <div class="copy-prompt"><strong>Better prompt:</strong> "Can you explain the concept of deep learning, including its purpose and how it differs from traditional machine learning, specifically in the context of analyzing complex data patterns?"</div>
+  <p><strong>Why it works:</strong> This improved prompt provides clear context and expectations, leading to more detailed and relevant responses.</p>
+</section>
+
+<section class="practice-plan">
+  <div class="section-kicker">PRACTICE</div>
+  <h2>Your 10-Minute Exercise</h2>
+  <ol>
+    <li>Read the article on RAG from lakeFS to understand its basics.</li>
+    <li>Identify one piece of data from your work that could enhance an LLM and write it down.</li>
+    <li>Try creating a simple prompt for an LLM that includes this data context.</li>
+  </ol>
 </section>
 
 <section class="jimmy-take">
   <h2>Jimmy's Take</h2>
-  <p>I'm excited about today's focus on prompting techniques because getting your questions right can really make or break your interaction with AI. Many users struggle with vague or poorly structured prompts, leading to frustrating results. By mastering effective prompting, you can unlock the full potential of AI tools like Claude, making your tasks easier and more efficient.</p>
+  <p>Understanding the groundwork of machine learning and LLMs can feel complex, but starting with simple concepts helps. Focus on how to leverage your own information to work with these models. This opens up exciting opportunities for using AI in practical, relevant ways.</p>
 </section>
 
-<section class="weekly-pick">
-  <p class="pick-label">Jimmy's Pick: Skill of the Day</p>
-  <h2>Mastering Prompt Structure</h2>
-  <p>Today’s skill is all about crafting structured prompts for AI. This means clearly defining the role, context, task, constraints, and desired output. Check out the article on Claude's best practices for prompt engineering to refine your skills.</p>
-  <a href="https://claude.com/blog/best-practices-for-prompt-engineering" target="_blank" class="button">Read the Source</a>
-</section>
-
-<section class="signal-board">
-  <h2>AI Skill Board</h2>
-  <div class="signal-grid">
-    <div class="signal"><strong>Prompt Move</strong><span>Instead of asking "Tell me about X", try "As an expert in X, can you explain the main benefits of it?"</span></div>
-    <div class="signal"><strong>Tool to Try</strong><span>Explore Claude for its new interactive features and improved responsiveness to structured prompts.</span></div>
-    <div class="signal"><strong>Beginner Concept</strong><span>Prompt engineering is the art of crafting your questions and instructions to get the best responses from AI.</span></div>
-    <div class="signal"><strong>Mistake to Avoid</strong><span>Avoid overly vague prompts, as they lead to unclear or unhelpful responses.</span></div>
-  </div>
-</section>
-
-<section class="section-block">
-  <div class="section-kicker">Prompting and Better Questions</div>
-  <h2>The Complete Claude Guide: Features, Skills, Projects, Artifacts and ...</h2>
-  <div class="story">
-    <div class="story-meta">
-      <span class="source">Anurag Wagh</span>
-      <span class="category">Prompting and Better Questions</span>
-    </div>
-    <h3>The Complete Claude Guide: Features, Skills, Projects, Artifacts and ...</h3>
-    <p><strong>Executive Summary:</strong> This guide covers effective ways to use Claude, focusing on features, skills, and prompting techniques for the best results.</p>
-    <p><strong>Beginner Translation:</strong> This means you can learn specific strategies to improve how you work with Claude, making your prompts clearer and the results more accurate.</p>
-    <p><strong>Why It Matters:</strong> Understanding how to utilize Claude effectively can lead to more productive interactions with AI, which is crucial for anyone looking to integrate AI into their daily routine.</p>
-    <p><strong>Try This:</strong> Experiment with structured prompts in Claude by applying strategies outlined in the guide and see how it improves your outputs.</p>
-    <div class="score-strip">
-      <span>Beginner Value: High</span>
-      <span>Practical Use: High</span>
-      <span>Tool Impact: High</span>
-      <span>Actionability: High</span>
-      <span>Hype Level: Low</span>
-    </div>
-    <a href="https://anuragwagh.com/blog/complete-claude-guide-features-skills-projects-artifacts" target="_blank" class="button">Read More</a>
-  </div>
-</section>
-
-<section class="section-block">
-  <div class="section-kicker">Prompting and Better Questions</div>
-  <h2>14 Claude Prompt Instructions To Structure Better AI Conversations</h2>
-  <div class="story">
-    <div class="story-meta">
-      <span class="source">AI Prompt Hub</span>
-      <span class="category">Prompting and Better Questions</span>
-    </div>
-    <h3>14 Claude Prompt Instructions To Structure Better AI Conversations</h3>
-    <p><strong>Executive Summary:</strong> This article provides a set of 14 prompt instructions that can enhance accuracy and reduce hallucinations when using Claude.</p>
-    <p><strong>Beginner Translation:</strong> These instructions offer practical templates to guide your AI conversations and ensure you get the information you actually need.</p>
-    <p><strong>Why It Matters:</strong> By using these structured prompts, you’re more likely to receive correct and useful responses, which is a game-changer for your productivity.</p>
-    <p><strong>Try This:</strong> Pick one of the 14 instructions and apply it to a question you have for Claude. Notice how the response changes!</p>
-    <div class="score-strip">
-      <span>Beginner Value: High</span>
-      <span>Practical Use: High</span>
-      <span>Tool Impact: High</span>
-      <span>Actionability: High</span>
-      <span>Hype Level: Low</span>
-    </div>
-    <a href="https://www.aiprompthub.ai/blog/claude-prompt-instructions-structure-ai-conversations" target="_blank" class="button">Read More</a>
-  </div>
-</section>
-
-<section class="prompt-lab">
-  <h2>Prompt Lab</h2>
-  <p><strong>Weak Prompt:</strong> "Tell me about climate change."</p>
-  <p><strong>Better Prompt:</strong> "As an environmental scientist, can you summarize the major causes and effects of climate change in simple terms?"</p>
-  <p><strong>Why It Works:</strong> The better prompt gives clear roles (environmental scientist), context (climate change), and specifics (major causes and effects) that direct the AI to provide a focused and informative answer.</p>
-</section>
-
-<section class="weekly-deep-dive">
-  <h2>Beginner Deep Dive Idea</h2>
-  <p>A great future lesson could delve into the specifics of each type of prompt structure and when to use them, enhancing overall chat efficiency.</p>
-</section>
-
-<section class="social-kit" id="share">
-  <h2>Share Kit</h2>
-  <p><strong>LinkedIn Post:</strong> "Excited to share essential tips on prompting AI! Mastering how to construct your questions can lead to better, more accurate responses from tools like Claude. Let’s make AI work better for us!"</p>
-  <p><strong>Short Post:</strong> "Want better AI responses? Focus on crafting structured prompts! It makes a world of difference." </p>
-</section>
-
-<section class="watchlist">
-  <h2>Practice Plan</h2>
+<section class="further-reading">
+  <h2>Keep Learning</h2>
   <ul>
-    <li>Practice writing structured prompts for tasks you usually use AI for, like drafting emails or summaries.</li>
-    <li>Test out new prompt structures from the articles to see how they change the AI’s responses.</li>
-    <li>Follow up on advanced prompting techniques by exploring other resources on prompt engineering.</li>
+    <li><a href="https://lakefs.io/blog/what-is-rag-pipeline/" target="_blank">RAG Pipeline: Example, Tools & How to Build It - lakeFS</a></li>
+    <li><a href="https://medium.com/@ankammarao1404/retrieval-augmented-generation-rag-a-complete-beginners-guide-to-building-smarter-ai-systems-50967d619566" target="_blank">Retrieval-Augmented Generation (RAG): A Complete Beginner's Guide</a></li>
+    <li><a href="https://blog.eduonix.com/2026/07/how-to-build-a-rag-system-step-by-step-guide/" target="_blank">How to Build a RAG System (Step-by-Step Guide)</a></li>
   </ul>
-</section>
-<section class="section-block">
-  <div class="section-kicker">Additional Signals</div>
-  <h2>More Stories Worth Reviewing</h2>
-  <div class="story">
-    <div class="story-meta">
-      <span class="source">Source</span>
-      <span class="category">Additional Source</span>
-    </div>
-    <h3>AI Learning Resources &amp; Guides from Anthropic</h3>
-    <p><strong>Executive Summary:</strong> Access comprehensive guides, tutorials, and best practices for working with Claude. Learn how to craft effective prompts and maximize AI interactions in your workflow.</p>
-    <p><strong>Why It Matters:</strong> This gives readers another real source to review while learning how AI tools, prompting habits, and practical workflows are changing.</p>
-    <p><strong>Ops Lens:</strong> Validate important details, compare sources, and test the idea in a small AI workflow before relying on it.</p>
-    <div class="score-strip"><span>Beginner Value: Medium</span><span>Practical Use: Medium</span><span>Tool Impact: Medium</span><span>Actionability: Medium</span><span>Hype Level: Medium</span></div>
-    <a href="https://www.anthropic.com/learn" target="_blank" rel="noopener noreferrer" class="button">Read More</a>
-  </div>
 </section></main>
     <section class="about" id="about">
       <h2>About This Report</h2>
-      <p>Jimmy's AI Field Guide is a practical briefing for infrastructure, cloud, security, and automation teams. The goal is simple: turn noisy AI news into useful signals, source links, and operational next steps.</p>
+      <p>Jimmy's AI Field Guide helps beginners and working professionals become more capable AI users through focused lessons, trustworthy sources, and short practical exercises.</p>
     </section>
     <footer class="footer">Generated automatically by Jimmy's AI Learning Agent</footer>
   </div>
