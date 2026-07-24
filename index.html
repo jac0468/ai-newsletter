@@ -28,7 +28,7 @@
     .lesson-label { color:#167d73; font-size:12px; font-weight:900; letter-spacing:.08em; }
     .lesson { background:#fff; border:1px solid #d8e0eb; }
     .lesson > p,.lesson-hero > p,.jimmy-take > p { max-width:800px; }
-    .section-block { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; align-items:start; }
+    .section-block { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; align-items:start; }
     .section-block > .section-kicker,.section-block > h2 { grid-column:1/-1; }
     .section-block .story { margin:0; height:calc(100% - 48px); }
     .lesson-hero { display:grid; grid-template-columns:minmax(0,1fr) 170px; gap:28px; align-items:center; }
@@ -62,7 +62,7 @@
     .about { padding:28px 44px; border-top:1px solid #dfe7f2; background:#f8fafc; color:#334155; }
     .about h2 { margin-bottom:8px; }
     .footer { padding:22px 44px; background:#17324d; color:#cbd5e1; font-size:13px; text-align:center; }
-    @media only screen and (max-width:820px){ .section-block{grid-template-columns:1fr} .lesson-hero{grid-template-columns:1fr}.lesson-hero .lesson-art{grid-column:1;grid-row:auto;width:120px;justify-self:start}  .masthead,.nav,.content,.about,.footer{padding-left:22px;padding-right:22px}.masthead h1{font-size:29px}.signal-grid{grid-template-columns:1fr}.story,.takeaways,.watchlist,.jimmy-take,.weekly-pick,.signal-board,.weekly-deep-dive,.social-kit{padding:18px}.nav a{display:inline-block;margin-bottom:8px} }
+    @media only screen and (max-width:980px){ .section-block{grid-template-columns:repeat(2,minmax(0,1fr))} } @media only screen and (max-width:700px){ .section-block{grid-template-columns:1fr} .lesson-hero{grid-template-columns:1fr}.lesson-hero .lesson-art{grid-column:1;grid-row:auto;width:120px;justify-self:start}  .masthead,.nav,.content,.about,.footer{padding-left:22px;padding-right:22px}.masthead h1{font-size:29px}.signal-grid{grid-template-columns:1fr}.story,.takeaways,.watchlist,.jimmy-take,.weekly-pick,.signal-board,.weekly-deep-dive,.social-kit{padding:18px}.nav a{display:inline-block;margin-bottom:8px} }
   </style>
 </head>
 <body>
@@ -73,7 +73,7 @@
       <p>One useful idea at a time—explained clearly, grounded in sources, and finished with something you can practice today.</p>
       <div class="topline">Friday, July 24, 2026</div>
     </header>
-    <nav class="nav"><a href="#latest">Latest Issue</a><a href="archive/">Archive</a><a href="subscribe/">Subscribe</a><a href="https://jac0468.github.io/ai-newsletter/archive/20260724-233323Z.html">Permanent Link</a><a href="#about">About</a></nav>
+    <nav class="nav"><a href="#latest">Latest Issue</a><a href="archive/">Archive</a><a href="subscribe/">Subscribe</a><a href="https://jac0468.github.io/ai-newsletter/archive/20260724-233621Z.html">Permanent Link</a><a href="#about">About</a></nav>
     <main class="content"><section class="lesson-hero" id="latest"><div class="lesson-art" role="img" aria-label="Open field guide with an AI spark">
 <svg viewBox="0 0 180 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <rect x="10" y="28" width="72" height="96" rx="9" fill="#ffffff" stroke="#167d73" stroke-width="4"/>
@@ -84,91 +84,91 @@
   <path d="M116 62h35M116 76h25M116 90h31" stroke="#167d73" stroke-width="4" stroke-linecap="round"/>
 </svg></div>
   <p class="lesson-label">TODAY'S PRACTICAL LESSON</p>
-  <h2>Demystifying AI: Understanding Models and Machine Learning</h2>
-  <p>By the end of this lesson, you will understand the basic concepts of artificial intelligence, including models, large language models (LLMs), and the principles of machine learning.</p>
+  <h2>Understanding the Basics of AI Models and Machine Learning</h2>
+  <p>This lesson will help you grasp how AI models, especially Large Language Models (LLMs), function and how they can be effectively utilized in your work.</p>
 </section>
 
 <section class="takeaways">
   <h2>In 60 Seconds</h2>
   <ul>
-    <li>AI models are algorithms designed to perform specific tasks by learning from data.</li>
-    <li>Large language models (LLMs) process and generate text based on vast amounts of written data.</li>
-    <li>Machine learning is the technique that enables models to improve their performance over time through experience.</li>
+    <li>AI models learn from data and make predictions based on that learning.</li>
+    <li>Large Language Models (LLMs) are designed to understand and generate human-like text.</li>
+    <li>Utilizing techniques like Retrieval-Augmented Generation (RAG) can enhance the value of LLMs in practical applications.</li>
   </ul>
 </section>
 
 <section class="lesson">
   <div class="section-kicker">LEARN</div>
   <h2>Today's Lesson</h2>
-  <p>At its core, AI consists of algorithms called models that learn from data to perform tasks. These models can be thought of as educated guesses based on patterns found in historical data. For example, an AI model might learn to recognize images or generate text by analyzing thousands of examples.</p>
+  <p>At its core, an AI model is a mathematical framework that learns from data. Machine learning, a subset of AI, refers to algorithms that allow models to improve their performance as they process more information. The more relevant data a model consumes, the better it can make predictions or generate text.</p>
   
-  <p>Large language models (LLMs) are a specific type of model that focus on understanding and generating human language. They are trained on extensive datasets, allowing them to understand context and produce relevant text. However, to maximize their usefulness, they often need to incorporate additional information or specific data through techniques like retrieval-augmented generation (RAG).</p> 
+  <p>Large Language Models (LLMs) are a type of AI specifically designed for natural language understanding and generation. They analyze vast amounts of text data to learn patterns, contexts, and nuances in language, enabling them to craft coherent and contextually appropriate responses.</p>
   
-  <p>Machine learning, the backbone of AI, is a technique used to improve model performance without explicit programming. Instead of hardcoding rules, machine learning relies on feeding data into the model, allowing it to identify patterns and make predictions. Over time, as the model encounters more data, it refines its approach and becomes more accurate.</p>
+  <p>To maximize the utility of LLMs in real-world scenarios, techniques like Retrieval-Augmented Generation (RAG) can be employed. RAG combines a model's ability to generate text with the capability to retrieve pertinent information from a database, enhancing the relevance and accuracy of responses.</p>
   
-  <div class="example-box"><strong>Example:</strong> A chatbot that uses an LLM can learn to answer customer questions by analyzing previous conversations to determine the best responses.</div>
+  <div class="example-box"><strong>Example:</strong> Imagine you're using an LLM in customer support. By employing RAG, the model can pull specific user information from a database while generating context-aware replies, ensuring better service and satisfaction.</div>
 </section>
 
 <section class="section-block">
   <div class="section-kicker">WHAT CHANGED</div>
   <h2>Three Useful Signals</h2>
   <article class="story"><div class="story-visual" role="img" aria-label="Prompting and communication"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 11h28v21H22l-8 6v-6h-4V11Z" fill="none" stroke="#167d73" stroke-width="3" stroke-linejoin="round"/><path d="M17 18h14M17 24h10" stroke="#d39a35" stroke-width="3" stroke-linecap="round"/></svg></div>
-    <div class="story-meta"><div class="story-visual" role="img" aria-label="Tools and practical use"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="24" r="8" fill="none" stroke="#167d73" stroke-width="3"/><path d="M24 7v6M24 35v6M7 24h6M35 24h6M12 12l5 5M31 31l5 5M36 12l-5 5M17 31l-5 5" stroke="#d39a35" stroke-width="3" stroke-linecap="round"/></svg></div><span class="source">lakeFS</span><span class="category">LEARN</span></div>
-    <h3>RAG Pipeline: Example, Tools & How to Build It - lakeFS</h3>
-    <p><strong>What happened:</strong> This article explains the importance of integrating your own data with LLMs through a retrieval-augmented generation pipeline. It outlines how to manage this process effectively.</p>
-    <p><strong>Why it matters:</strong> Understanding RAG helps you enhance AI models by tailoring them to specific business needs.</p>
-    <p><strong>Try it:</strong> Explore RAG concepts and consider how your data could improve an existing model.</p>
+    <div class="story-meta"><span class="source">lakeFS</span><span class="category">LEARN</span></div>
+    <h3>RAG Pipeline: Example, Tools & How to Build It</h3>
+    <p><strong>What happened:</strong> The article explains the RAG pipeline and its importance in machine learning practice. It emphasizes the need for businesses to add their own data for optimal model performance.</p>
+    <p><strong>Why it matters:</strong> Knowing how to enhance LLMs with your data can lead to more accurate and tailored outcomes for your projects.</p>
+    <p><strong>Try it:</strong> Explore integrating your specific data into an existing AI model to see improvements in its outputs.</p>
     <a href="https://lakefs.io/blog/what-is-rag-pipeline/" target="_blank" class="button">Read More</a>
   </article>
   
-  <article class="story"><div class="story-visual" role="img" aria-label="Trust and verification"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 6 39 12v10c0 10-6 17-15 21C15 39 9 32 9 22V12l15-6Z" fill="none" stroke="#167d73" stroke-width="3" stroke-linejoin="round"/><path d="m17 24 5 5 10-11" fill="none" stroke="#d39a35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <div class="story-meta"><div class="story-visual" role="img" aria-label="Prompting and communication"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 11h28v21H22l-8 6v-6h-4V11Z" fill="none" stroke="#167d73" stroke-width="3" stroke-linejoin="round"/><path d="M17 18h14M17 24h10" stroke="#d39a35" stroke-width="3" stroke-linecap="round"/></svg></div><span class="source">Medium</span><span class="category">LEARN</span></div>
+  <article class="story"><div class="story-visual" role="img" aria-label="Tools and practical use"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="24" r="8" fill="none" stroke="#167d73" stroke-width="3"/><path d="M24 7v6M24 35v6M7 24h6M35 24h6M12 12l5 5M31 31l5 5M36 12l-5 5M17 31l-5 5" stroke="#d39a35" stroke-width="3" stroke-linecap="round"/></svg></div>
+    <div class="story-meta"><span class="source">Medium</span><span class="category">LEARN</span></div>
     <h3>Retrieval-Augmented Generation (RAG): A Complete Beginner's Guide</h3>
-    <p><strong>What happened:</strong> This beginner's guide dives into deep learning, including using neural networks to analyze patterns within data.</p>
-    <p><strong>Why it matters:</strong> Knowing how deep learning works is crucial for understanding the capabilities and limitations of AI models.</p>
-    <p><strong>Try it:</strong> Research basic principles of deep learning for a clearer understanding of machine learning techniques.</p>
+    <p><strong>What happened:</strong> This guide explains deep learning and how it relates to machine learning through RAG. It teaches how to build smarter AI systems.</p>
+    <p><strong>Why it matters:</strong> Understanding RAG can help you tap into advanced techniques to improve AI-generated outputs relevant to your needs.</p>
+    <p><strong>Try it:</strong> Start building a simple RAG setup using the techniques described in the article.</p>
     <a href="https://medium.com/@ankammarao1404/retrieval-augmented-generation-rag-a-complete-beginners-guide-to-building-smarter-ai-systems-50967d619566" target="_blank" class="button">Read More</a>
   </article>
   
-  <article class="story"><div class="story-visual" role="img" aria-label="Tools and practical use"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="24" r="8" fill="none" stroke="#167d73" stroke-width="3"/><path d="M24 7v6M24 35v6M7 24h6M35 24h6M12 12l5 5M31 31l5 5M36 12l-5 5M17 31l-5 5" stroke="#d39a35" stroke-width="3" stroke-linecap="round"/></svg></div>
-    <div class="story-meta"><div class="story-visual" role="img" aria-label="Trust and verification"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 6 39 12v10c0 10-6 17-15 21C15 39 9 32 9 22V12l15-6Z" fill="none" stroke="#167d73" stroke-width="3" stroke-linejoin="round"/><path d="m17 24 5 5 10-11" fill="none" stroke="#d39a35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="source">GitHub</span><span class="category">TRY</span></div>
-    <h3>GitHub - Origudo/simple-rag-with-local-llm: A beginner-friendly implementation</h3>
-    <p><strong>What happened:</strong> This project provides a practical guide to setting up a local RAG pipeline, demonstrating how to work with documents and LLMs.</p>
-    <p><strong>Why it matters:</strong> Hands-on experience helps you grasp AI principles better than theoretical learning alone.</p>
-    <p><strong>Try it:</strong> Follow the guide to set up your own RAG system locally and test it out.</p>
-    <a href="https://github.com/Origudo/simple-rag-with-local-llm" target="_blank" class="button">Read More</a>
+  <article class="story"><div class="story-visual" role="img" aria-label="Trust and verification"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 6 39 12v10c0 10-6 17-15 21C15 39 9 32 9 22V12l15-6Z" fill="none" stroke="#167d73" stroke-width="3" stroke-linejoin="round"/><path d="m17 24 5 5 10-11" fill="none" stroke="#d39a35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="story-meta"><span class="source">Eduonix</span><span class="category">LEARN</span></div>
+    <h3>How to Build a RAG System (Step-by-Step Guide)</h3>
+    <p><strong>What happened:</strong> A step-by-step guide is provided to build a RAG system using Python and LLMs. Code examples and best practices are included.</p>
+    <p><strong>Why it matters:</strong> Practical guides like this empower you to implement RAG systems, giving you hands-on experience with AI tools.</p>
+    <p><strong>Try it:</strong> Follow the guide and set up your own RAG system to see its benefits in action.</p>
+    <a href="https://blog.eduonix.com/2026/07/how-to-build-a-rag-system-step-by-step-guide/" target="_blank" class="button">Read More</a>
   </article>
 </section>
 
 <section class="prompt-lab">
   <div class="section-kicker">TRY</div>
   <h2>Prompt Lab</h2>
-  <p><strong>Basic prompt:</strong> "Tell me about AI."</p>
-  <div class="copy-prompt"><strong>Better prompt:</strong> "Explain how AI models learn from data, focusing on the differences between traditional algorithms and large language models." </div>
-  <p><strong>Why it works:</strong> This prompt is specific, guiding the AI to provide detailed information in a way that highlights important distinctions.</p>
+  <p><strong>Basic prompt:</strong> Tell me about AI.</p>
+  <div class="copy-prompt"><strong>Better prompt:</strong> Explain how Retrieval-Augmented Generation (RAG) improves Large Language Models in providing relevant information, and include examples of its applications.</div>
+  <p><strong>Why it works:</strong> This prompt specifies a context (RAG), a task (explain its improvement on LLMs), and asks for examples, which leads to clearer and more useful outputs.</p>
 </section>
 
 <section class="practice-plan">
   <div class="section-kicker">PRACTICE</div>
   <h2>Your 10-Minute Exercise</h2>
   <ol>
-    <li>Watch a short video or read an article about the basics of machine learning.</li>
-    <li>Try creating a simple prompt for an LLM, focusing on a specific question related to AI.</li>
-    <li>Reflect on how your work or daily tasks might benefit from using AI technology.</li>
+    <li>Read one of the RAG-related articles to understand its concepts better.</li>
+    <li>Identify a task where you can apply an LLM in your work or projects.</li>
+    <li>Sketch a simple plan on how to implement RAG techniques in that task.</li>
   </ol>
 </section>
 
 <section class="jimmy-take">
   <h2>Jimmy's Take</h2>
-  <p>Getting a handle on AI starts with understanding its building blocks, like models and machine learning. Each piece plays a role in how AI adapts and learns from information. Start small, ask questions, and explore how these technologies can fit into your workflow. You'll soon find confidence in your AI skills!</p>
+  <p>As you explore AI, keep in mind that understanding the foundations—like models and machine learning—is crucial. They unlock the true potential of tools like LLMs. Don't hesitate to experiment with integrating your own data through RAG techniques; it’s a game changer for getting the most out of what AI can offer in your field.</p>
 </section>
 
 <section class="further-reading">
   <h2>Keep Learning</h2>
   <ul>
-    <li><a href="https://lakefs.io/blog/what-is-rag-pipeline/">RAG Pipeline: Example, Tools & How to Build It - lakeFS</a></li>
-    <li><a href="https://medium.com/@ankammarao1404/retrieval-augmented-generation-rag-a-complete-beginners-guide-to-building-smarter-ai-systems-50967d619566">Retrieval-Augmented Generation (RAG): A Complete Beginner's Guide</a></li>
-    <li><a href="https://github.com/Origudo/simple-rag-with-local-llm">GitHub - Origudo/simple-rag-with-local-llm: A beginner-friendly implementation</a></li>
+    <li><a href="https://lakefs.io/blog/what-is-rag-pipeline/" target="_blank">RAG Pipeline: Example, Tools & How to Build It</a></li>
+    <li><a href="https://medium.com/@ankammarao1404/retrieval-augmented-generation-rag-a-complete-beginners-guide-to-building-smarter-ai-systems-50967d619566" target="_blank">Retrieval-Augmented Generation (RAG): A Complete Beginner's Guide</a></li>
+    <li><a href="https://blog.eduonix.com/2026/07/how-to-build-a-rag-system-step-by-step-guide/" target="_blank">How to Build a RAG System (Step-by-Step Guide)</a></li>
   </ul>
 </section></main>
     <section class="about" id="about">
