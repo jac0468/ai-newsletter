@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jimmy's AI Field Guide</title>
+  <style>
+    body { margin:0; padding:0; background:#f3f0e8; color:#172033; font-family:Arial,Helvetica,sans-serif; line-height:1.58; }
+    .page { max-width:1120px; margin:0 auto; background:#fff; box-shadow:0 10px 34px rgba(15,23,42,.14); }
+    .masthead { background:#17324d; color:#fff; padding:34px 44px 28px; border-bottom:5px solid #18a999; }
+    .eyebrow { margin:0 0 8px; color:#9fb7d8; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .masthead h1 { margin:0; font-size:36px; line-height:1.12; font-weight:800; }
+    .masthead p { margin:12px 0 0; color:#dbe6f7; font-size:15px; max-width:720px; }
+    .topline { margin-top:18px; color:#dbe6f7; font-size:13px; font-weight:700; }
+    .nav { padding:14px 44px; border-bottom:1px solid #dfe7f2; background:#f8fafc; font-size:13px; font-weight:800; }
+    .nav a { margin-right:18px; color:#234e76; text-decoration:none; }
+    .content { padding:42px 56px 52px; }
+    .brief-intro { margin:0 0 24px; padding:18px 20px; background:#f7f9fc; border-left:4px solid #2f6fed; border-radius:6px; }
+    h2 { margin:0 0 16px; color:#101b2d; font-size:22px; line-height:1.25; }
+    .takeaways,.watchlist,.signal-board,.weekly-deep-dive,.social-kit { margin:0 0 30px; padding:22px 24px; background:#f5f8fc; border:1px solid #dfe7f2; border-radius:8px; }
+    .jimmy-take { margin:0 0 30px; padding:22px 24px; background:#fff8e8; border:1px solid #f1d79a; border-left:5px solid #c98a12; border-radius:8px; }
+    .jimmy-take p { margin:0; color:#2f3b4f; font-size:15.5px; }
+    .weekly-pick { margin:0 0 30px; padding:24px; background:#eef7f6; border:1px solid #b7ded8; border-left:5px solid #0f766e; border-radius:8px; }
+    .pick-label { margin:0 0 8px; color:#0f766e; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:0; }
+    .weekly-pick p { color:#2f3b4f; }
+    .lesson-hero,.lesson,.prompt-lab,.practice-plan,.further-reading { margin:0 0 30px; padding:24px; border-radius:10px; }
+    .lesson-hero { background:#e9f7f4; border:1px solid #b6dfd7; border-left:5px solid #18a999; }
+    .lesson-label { color:#167d73; font-size:12px; font-weight:900; letter-spacing:.08em; }
+    .lesson { background:#fff; border:1px solid #d8e0eb; }
+    .lesson > p,.lesson-hero > p,.jimmy-take > p { max-width:800px; }
+    .section-block { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; align-items:start; }
+    .section-block > .section-kicker,.section-block > h2 { grid-column:1/-1; }
+    .section-block .story { margin:0; height:calc(100% - 48px); }
+    .lesson-hero { display:grid; grid-template-columns:minmax(0,1fr) 170px; gap:28px; align-items:center; }
+    .lesson-hero .lesson-art { grid-column:2; grid-row:1/5; width:160px; justify-self:end; }
+    .lesson-hero .lesson-art svg { display:block; width:100%; height:auto; }
+    .story-visual { width:54px; height:54px; margin:0 0 15px; border-radius:14px; display:grid; place-items:center; background:#e9f7f4; }
+    .story-visual svg { width:34px; height:34px; display:block; }
+    .example-box,.copy-prompt { margin:16px 0; padding:18px; background:#f6f1e7; border-left:4px solid #d39a35; border-radius:6px; }
+    .prompt-lab { background:#eef5fb; border:1px solid #cbdceb; }
+    .practice-plan { background:#17324d; color:#fff; }
+    .practice-plan h2,.practice-plan .section-kicker { color:#fff; }
+    .skill-tags { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; }
+    .skill-tags span { padding:5px 9px; background:#e9f7f4; color:#12695f; border-radius:999px; font-size:11px; font-weight:900; }
+    .score-strip { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; padding:12px; background:#f7f9fc; border:1px solid #dfe7f2; border-radius:8px; }
+    .score-strip span { display:inline-block; padding:5px 8px; background:#fff; border:1px solid #d8e0eb; border-radius:999px; color:#334155; font-size:12px; font-weight:800; }
+    .signal-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .signal { background:#fff; border:1px solid #d8e0eb; border-radius:8px; padding:16px; }
+    .signal strong { display:block; color:#13233a; margin-bottom:6px; }
+    .signal span { color:#40516a; font-size:14px; }
+    .section-block { margin:34px 0 10px; padding-top:6px; border-top:1px solid #dfe7f2; }
+    .section-kicker { margin:18px 0 6px; color:#2f6fed; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .story { margin:18px 0 24px; padding:24px; background:#fff; border:1px solid #d8e0eb; border-radius:8px; box-shadow:0 4px 16px rgba(15,23,42,.07); }
+    .story-meta { margin:0 0 12px; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .source,.category { border-radius:999px; padding:5px 9px; margin-right:8px; display:inline-block; }
+    .source { color:#101b2d; background:#eaf0f8; }
+    .category { color:#234e76; background:#e8f5f4; }
+    .story h3,.story h2 { margin:0 0 14px; color:#13233a; font-size:22px; line-height:1.28; }
+    .story p { margin:12px 0; font-size:15px; color:#27364c; }
+    .button { display:inline-block; margin-top:12px; padding:10px 15px; color:#fff!important; background:#167d73; border-radius:6px; text-decoration:none!important; font-weight:800; font-size:14px; }
+    a { color:#167d73; text-decoration:none; font-weight:700; }
+    .about { padding:28px 44px; border-top:1px solid #dfe7f2; background:#f8fafc; color:#334155; }
+    .about h2 { margin-bottom:8px; }
+    .footer { padding:22px 44px; background:#17324d; color:#cbd5e1; font-size:13px; text-align:center; }
+    @media only screen and (max-width:980px){ .section-block{grid-template-columns:repeat(2,minmax(0,1fr))} } @media only screen and (max-width:700px){ .section-block{grid-template-columns:1fr} .lesson-hero{grid-template-columns:1fr}.lesson-hero .lesson-art{grid-column:1;grid-row:auto;width:120px;justify-self:start}  .masthead,.nav,.content,.about,.footer{padding-left:22px;padding-right:22px}.masthead h1{font-size:29px}.signal-grid{grid-template-columns:1fr}.story,.takeaways,.watchlist,.jimmy-take,.weekly-pick,.signal-board,.weekly-deep-dive,.social-kit{padding:18px}.nav a{display:inline-block;margin-bottom:8px} }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <p class="eyebrow">One Focused AI Lesson · Practical Skills · Plain English</p>
+      <h1>Jimmy's AI Field Guide</h1>
+      <p>One useful idea at a time—explained clearly, grounded in sources, and finished with something you can practice today.</p>
+      <div class="topline">Monday, August 31, 2026</div>
+    </header>
+    <nav class="nav"><a href="#latest">Latest Issue</a><a href="archive/">Archive</a><a href="subscribe/">Subscribe</a><a href="https://jac0468.github.io/ai-newsletter/archive/20260831-120020Z.html">Permanent Link</a><a href="#about">About</a></nav>
+    <main class="content"><section class="lesson-hero" id="latest"><div class="lesson-art" role="img" aria-label="Open field guide with an AI spark">
+<svg viewBox="0 0 180 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="10" y="28" width="72" height="96" rx="9" fill="#ffffff" stroke="#167d73" stroke-width="4"/>
+  <rect x="98" y="28" width="72" height="96" rx="9" fill="#ffffff" stroke="#167d73" stroke-width="4"/>
+  <path d="M82 38c-18-10-38-11-58-4v74c21-6 40-4 58 7V38Zm16 0c18-10 38-11 58-4v74c-21-6-40-4-58 7V38Z" fill="#dff4ef"/>
+  <path d="M90 18l5 13 13 5-13 5-5 13-5-13-13-5 13-5 5-13Z" fill="#d39a35"/>
+  <circle cx="44" cy="66" r="8" fill="#18a999"/><path d="M31 88h27M31 99h38" stroke="#167d73" stroke-width="4" stroke-linecap="round"/>
+  <path d="M116 62h35M116 76h25M116 90h31" stroke="#167d73" stroke-width="4" stroke-linecap="round"/>
+</svg></div>
+  <p class="lesson-label">TODAY'S PRACTICAL LESSON</p>
+  <h2>How to Choose the Right AI Tool for Your Task</h2>
+  <p>By the end of this lesson, you'll know how to identify specific needs and select appropriate AI tools to tackle them effectively.</p>
+</section>
+
+<section class="takeaways">
+  <h2>In 60 Seconds</h2>
+  <ul>
+    <li>Identify your task and specific needs.</li>
+    <li>Research tools that align with your requirements.</li>
+    <li>Test and compare tools to find what works best for you.</li>
+  </ul>
+</section>
+
+<section class="lesson">
+  <div class="section-kicker">LEARN</div>
+  <h2>Today's Lesson</h2>
+  <p>Choosing the right AI tool starts with understanding your specific task. Ask yourself questions like: What do I need to accomplish? Is it writing, coding, or research? Determining your goal narrows down your options.</p>
+  
+  <p>Next, do some research. Look for tools that specialize in the area you need help with. For example, if you need writing assistance, tools like Claude or ChatGPT might suit your needs. If your focus is on coding, tools such as GitHub Copilot or Google Antigravity should be considered.</p>
+
+  <p>Finally, don’t hesitate to test out a few tools. Many offer free tiers or trials, allowing you to experiment. Use them on a small scale to gauge how well they meet your requirements. This hands-on experience will help you make an informed choice.</p>
+
+  <div class="example-box"><strong>Example:</strong> If you are tasked with drafting a report, try using ChatGPT for generative text and Perplexity for research—compare which tool enhances your workflow more effectively.</div>
+</section>
+
+<section class="section-block">
+  <div class="section-kicker">WHAT CHANGED</div>
+  <h2>Three Useful Signals</h2>
+  <article class="story"><div class="story-visual" role="img" aria-label="Prompting and communication"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 11h28v21H22l-8 6v-6h-4V11Z" fill="none" stroke="#167d73" stroke-width="3" stroke-linejoin="round"/><path d="M17 18h14M17 24h10" stroke="#d39a35" stroke-width="3" stroke-linecap="round"/></svg></div>
+    <div class="story-meta"><span class="source">DataCamp</span><span class="category">LEARN</span></div>
+    <h3>The 40 Best Free AI Tools in 2026: A Complete Guide | DataCamp</h3>
+    <p><strong>What happened:</strong> The article outlines various free AI tools available in 2026 for coding, research, and document analysis. It provides specific recommendations for task-based usage.</p>
+    <p><strong>Why it matters:</strong> Knowing specialized tools helps you select the best option for a specific task, making your work more efficient.</p>
+    <p><strong>Try it:</strong> Review the article to find a tool suited for your next project.</p>
+    <a href="https://www.datacamp.com/blog/free-ai-tools" target="_blank" class="button">Read More</a>
+  </article>
+
+  <article class="story"><div class="story-visual" role="img" aria-label="Tools and practical use"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="24" r="8" fill="none" stroke="#167d73" stroke-width="3"/><path d="M24 7v6M24 35v6M7 24h6M35 24h6M12 12l5 5M31 31l5 5M36 12l-5 5M17 31l-5 5" stroke="#d39a35" stroke-width="3" stroke-linecap="round"/></svg></div>
+    <div class="story-meta"><span class="source">T-Minus AI</span><span class="category">TRY</span></div>
+    <h3>Compare AI Models 2026: ChatGPT vs Claude vs Gemini | T-Minus AI</h3>
+    <p><strong>What happened:</strong> This comparison highlights the capabilities of various leading AI models. It includes use-case scenarios for effective application.</p>
+    <p><strong>Why it matters:</strong> Understanding model differences helps you pick the right AI for your specific needs and tasks.</p>
+    <p><strong>Try it:</strong> Explore the comparison to identify which model aligns with your work requirements.</p>
+    <a href="https://www.tminusai.com/models" target="_blank" class="button">Read More</a>
+  </article>
+
+  <article class="story"><div class="story-visual" role="img" aria-label="Trust and verification"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 6 39 12v10c0 10-6 17-15 21C15 39 9 32 9 22V12l15-6Z" fill="none" stroke="#167d73" stroke-width="3" stroke-linejoin="round"/><path d="m17 24 5 5 10-11" fill="none" stroke="#d39a35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="story-meta"><span class="source">Atlas</span><span class="category">VERIFY</span></div>
+    <h3>ChatGPT Alternatives (2026): 10 Best AI Tools Tested | Atlas</h3>
+    <p><strong>What happened:</strong> The article reviews alternative tools to ChatGPT based on specific tasks like coding support and document reasoning.</p>
+    <p><strong>Why it matters:</strong> This information provides additional choices, allowing you to select a proper tool based on your precise needs.</p>
+    <p><strong>Try it:</strong> Look through the tested tools to see which might work better for you than your current solution.</p>
+    <a href="https://www.atlasworkspace.ai/blog/chatgpt-alternatives" target="_blank" class="button">Read More</a>
+  </article>
+</section>
+
+<section class="prompt-lab">
+  <div class="section-kicker">TRY</div>
+  <h2>Prompt Lab</h2>
+  <p><strong>Basic prompt:</strong> "Help me write a report."</p>
+  <div class="copy-prompt"><strong>Better prompt:</strong> "I need to write a marketing report for the Q3 sales. Please provide a structure and key points to cover including analytics and insights."</div>
+  <p><strong>Why it works:</strong> This prompt gives the AI clear context, defines the task, and specifies the desired output, leading to a more focused and helpful response.</p>
+</section>
+
+<section class="practice-plan">
+  <div class="section-kicker">PRACTICE</div>
+  <h2>Your 10-Minute Exercise</h2>
+  <ol>
+    <li>Identify a task you need help with—like writing, coding, or research.</li>
+    <li>Research at least two AI tools that align with your task and compare their features.</li>
+    <li>Set up a free trial or account for one of the tools and experiment with it on a small project.</li>
+  </ol>
+</section>
+
+<section class="jimmy-take">
+  <h2>Jimmy's Take</h2>
+  <p>Choosing the right AI tool doesn’t have to be overwhelming. Start by pinpointing what you need. Then, explore your options and take them for a test run. This way, you’ll find a tool that genuinely enhances your productivity and fits your workflow.</p>
+</section>
+
+<section class="further-reading">
+  <h2>Keep Learning</h2>
+  <ul>
+    <li><a href="https://www.datacamp.com/blog/free-ai-tools">The 40 Best Free AI Tools in 2026: A Complete Guide | DataCamp</a></li>
+    <li><a href="https://www.tminusai.com/models">Compare AI Models 2026: ChatGPT vs Claude vs Gemini | T-Minus AI</a></li>
+    <li><a href="https://www.atlasworkspace.ai/blog/chatgpt-alternatives">ChatGPT Alternatives (2026): 10 Best AI Tools Tested | Atlas</a></li>
+  </ul>
+</section></main>
+    <section class="about" id="about">
+      <h2>About This Report</h2>
+      <p>Jimmy's AI Field Guide helps beginners and working professionals become more capable AI users through focused lessons, trustworthy sources, and short practical exercises.</p>
+    </section>
+    <footer class="footer">Generated automatically by Jimmy's AI Learning Agent</footer>
+  </div>
+</body>
+</html>
