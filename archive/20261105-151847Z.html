@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jimmy's AI Field Guide</title>
+  <style>
+    body { margin:0; padding:0; background:#f3f0e8; color:#172033; font-family:Arial,Helvetica,sans-serif; line-height:1.58; }
+    .page { max-width:1120px; margin:0 auto; background:#fff; box-shadow:0 10px 34px rgba(15,23,42,.14); }
+    .masthead { background:#17324d; color:#fff; padding:34px 44px 28px; border-bottom:5px solid #18a999; }
+    .eyebrow { margin:0 0 8px; color:#9fb7d8; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .masthead h1 { margin:0; font-size:36px; line-height:1.12; font-weight:800; }
+    .masthead p { margin:12px 0 0; color:#dbe6f7; font-size:15px; max-width:720px; }
+    .topline { margin-top:18px; color:#dbe6f7; font-size:13px; font-weight:700; }
+    .nav { padding:14px 44px; border-bottom:1px solid #dfe7f2; background:#f8fafc; font-size:13px; font-weight:800; }
+    .nav a { margin-right:18px; color:#234e76; text-decoration:none; }
+    .content { padding:42px 56px 52px; }
+    .brief-intro { margin:0 0 24px; padding:18px 20px; background:#f7f9fc; border-left:4px solid #2f6fed; border-radius:6px; }
+    h2 { margin:0 0 16px; color:#101b2d; font-size:22px; line-height:1.25; }
+    .takeaways,.watchlist,.signal-board,.weekly-deep-dive,.social-kit { margin:0 0 30px; padding:22px 24px; background:#f5f8fc; border:1px solid #dfe7f2; border-radius:8px; }
+    .jimmy-take { margin:0 0 30px; padding:22px 24px; background:#fff8e8; border:1px solid #f1d79a; border-left:5px solid #c98a12; border-radius:8px; }
+    .jimmy-take p { margin:0; color:#2f3b4f; font-size:15.5px; }
+    .weekly-pick { margin:0 0 30px; padding:24px; background:#eef7f6; border:1px solid #b7ded8; border-left:5px solid #0f766e; border-radius:8px; }
+    .pick-label { margin:0 0 8px; color:#0f766e; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:0; }
+    .weekly-pick p { color:#2f3b4f; }
+    .lesson-hero,.lesson,.prompt-lab,.practice-plan,.further-reading { margin:0 0 30px; padding:24px; border-radius:10px; }
+    .lesson-hero { background:#e9f7f4; border:1px solid #b6dfd7; border-left:5px solid #18a999; }
+    .lesson-label { color:#167d73; font-size:12px; font-weight:900; letter-spacing:.08em; }
+    .lesson { background:#fff; border:1px solid #d8e0eb; }
+    .lesson > p,.lesson-hero > p,.jimmy-take > p { max-width:800px; }
+    .section-block { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; align-items:start; }
+    .section-block > .section-kicker,.section-block > h2 { grid-column:1/-1; }
+    .section-block .story { margin:0; height:calc(100% - 48px); }
+    .lesson-hero { display:grid; grid-template-columns:minmax(0,1fr) 170px; gap:28px; align-items:center; }
+    .lesson-hero .lesson-art { grid-column:2; grid-row:1/5; width:160px; justify-self:end; }
+    .lesson-hero .lesson-art svg { display:block; width:100%; height:auto; }
+    .story-visual { width:54px; height:54px; margin:0 0 15px; border-radius:14px; display:grid; place-items:center; background:#e9f7f4; }
+    .story-visual svg { width:34px; height:34px; display:block; }
+    .example-box,.copy-prompt { margin:16px 0; padding:18px; background:#f6f1e7; border-left:4px solid #d39a35; border-radius:6px; }
+    .prompt-lab { background:#eef5fb; border:1px solid #cbdceb; }
+    .practice-plan { background:#17324d; color:#fff; }
+    .practice-plan h2,.practice-plan .section-kicker { color:#fff; }
+    .skill-tags { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; }
+    .skill-tags span { padding:5px 9px; background:#e9f7f4; color:#12695f; border-radius:999px; font-size:11px; font-weight:900; }
+    .score-strip { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; padding:12px; background:#f7f9fc; border:1px solid #dfe7f2; border-radius:8px; }
+    .score-strip span { display:inline-block; padding:5px 8px; background:#fff; border:1px solid #d8e0eb; border-radius:999px; color:#334155; font-size:12px; font-weight:800; }
+    .signal-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .signal { background:#fff; border:1px solid #d8e0eb; border-radius:8px; padding:16px; }
+    .signal strong { display:block; color:#13233a; margin-bottom:6px; }
+    .signal span { color:#40516a; font-size:14px; }
+    .section-block { margin:34px 0 10px; padding-top:6px; border-top:1px solid #dfe7f2; }
+    .section-kicker { margin:18px 0 6px; color:#2f6fed; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .story { margin:18px 0 24px; padding:24px; background:#fff; border:1px solid #d8e0eb; border-radius:8px; box-shadow:0 4px 16px rgba(15,23,42,.07); }
+    .story-meta { margin:0 0 12px; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0; }
+    .source,.category { border-radius:999px; padding:5px 9px; margin-right:8px; display:inline-block; }
+    .source { color:#101b2d; background:#eaf0f8; }
+    .category { color:#234e76; background:#e8f5f4; }
+    .story h3,.story h2 { margin:0 0 14px; color:#13233a; font-size:22px; line-height:1.28; }
+    .story p { margin:12px 0; font-size:15px; color:#27364c; }
+    .button { display:inline-block; margin-top:12px; padding:10px 15px; color:#fff!important; background:#167d73; border-radius:6px; text-decoration:none!important; font-weight:800; font-size:14px; }
+    a { color:#167d73; text-decoration:none; font-weight:700; }
+    .about { padding:28px 44px; border-top:1px solid #dfe7f2; background:#f8fafc; color:#334155; }
+    .about h2 { margin-bottom:8px; }
+    .footer { padding:22px 44px; background:#17324d; color:#cbd5e1; font-size:13px; text-align:center; }
+    @media only screen and (max-width:980px){ .section-block{grid-template-columns:repeat(2,minmax(0,1fr))} } @media only screen and (max-width:700px){ .section-block{grid-template-columns:1fr} .lesson-hero{grid-template-columns:1fr}.lesson-hero .lesson-art{grid-column:1;grid-row:auto;width:120px;justify-self:start}  .masthead,.nav,.content,.about,.footer{padding-left:22px;padding-right:22px}.masthead h1{font-size:29px}.signal-grid{grid-template-columns:1fr}.story,.takeaways,.watchlist,.jimmy-take,.weekly-pick,.signal-board,.weekly-deep-dive,.social-kit{padding:18px}.nav a{display:inline-block;margin-bottom:8px} }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <p class="eyebrow">Agentic AI Architecture · MCP Servers · Workflow Automation</p>
+      <h1>Jimmy's AI Field Guide</h1>
+      <p>One useful architecture pattern at a time—explained clearly, grounded in sources, and finished with something you can build or practice.</p>
+      <div class="topline">Thursday, November 5, 2026</div>
+    </header>
+    <nav class="nav"><a href="#latest">Latest Issue</a><a href="archive/">Archive</a><a href="subscribe/">Subscribe</a><a href="https://jac0468.github.io/ai-newsletter/archive/20261105-151847Z.html">Permanent Link</a><a href="#about">About</a></nav>
+    <main class="content"><section class="lesson-hero" id="latest"><div class="lesson-art" role="img" aria-label="Open field guide with an AI spark">
+<svg viewBox="0 0 180 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="10" y="28" width="72" height="96" rx="9" fill="#ffffff" stroke="#167d73" stroke-width="4"/>
+  <rect x="98" y="28" width="72" height="96" rx="9" fill="#ffffff" stroke="#167d73" stroke-width="4"/>
+  <path d="M82 38c-18-10-38-11-58-4v74c21-6 40-4 58 7V38Zm16 0c18-10 38-11 58-4v74c-21-6-40-4-58 7V38Z" fill="#dff4ef"/>
+  <path d="M90 18l5 13 13 5-13 5-5 13-5-13-13-5 13-5 5-13Z" fill="#d39a35"/>
+  <circle cx="44" cy="66" r="8" fill="#18a999"/><path d="M31 88h27M31 99h38" stroke="#167d73" stroke-width="4" stroke-linecap="round"/>
+  <path d="M116 62h35M116 76h25M116 90h31" stroke="#167d73" stroke-width="4" stroke-linecap="round"/>
+</svg></div>
+  <p class="lesson-label">TODAY'S PRACTICAL LESSON</p>
+  <h2>Designing Effective Memory in Agentic AI Systems</h2>
+  <p>This lesson covers how to implement memory, state management, and context control in your AI systems, enabling effects like improved decision-making and task execution.</p>
+</section>
+
+<section class="takeaways">
+  <h2>In 60 Seconds</h2>
+  <ul>
+    <li>Understand what an agent needs to remember for effective task execution.</li>
+    <li>Learn where to maintain state and how to manage context effectively.</li>
+    <li>Explore practical design patterns for implementing memory in AI workflows.</li>
+  </ul>
+</section>
+
+<section class="lesson">
+  <div class="section-kicker">LEARN</div>
+  <h2>Today's Lesson</h2>
+  <p>In designing agentic AI systems, memory is crucial for maintaining continuity. An agent should remember execution history, user preferences, and relevant data about its environment. This memory needs to be accessible and modifiable to adapt to changing conditions or user requirements.</p>
+  
+  <p>State management plays a key role in managing the interaction flow of the agent. The state should persist between sessions where necessary, allowing the agent to pick up tasks exactly where it left off. You can store state in a central data repository, enabling each agent's instance to access shared context without conflicts.</p>
+  
+  <p>Context, the condition under which an agent operates, should be dynamically controlled. Use contextual information such as user location or time of day to make informed decisions or tailor interactions. By implementing context-aware logic, you empower agents to behave sensibly in diverse scenarios.</p>
+
+  <div class="example-box"><strong>Example:</strong> Imagine developing a virtual assistant that schedules meetings. The assistant should remember user preferences for meeting times and locations (memory), maintain the current meeting schedule (state), and adjust suggestions based on the user's timezone (context).</div>
+</section>
+
+<section class="section-block">
+  <div class="section-kicker">WHAT CHANGED</div>
+  <h2>Three Useful Signals</h2>
+  <article class="story"><div class="story-visual" role="img" aria-label="Agent architecture and planning"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 11h28v21H22l-8 6v-6h-4V11Z" fill="none" stroke="#167d73" stroke-width="3" stroke-linejoin="round"/><path d="M17 18h14M17 24h10" stroke="#d39a35" stroke-width="3" stroke-linecap="round"/></svg></div>
+    <div class="story-meta"><span class="source">Microsoft</span><span class="category">LEARN</span></div>
+    <h3>Turning network configuration management into a conversation at Microsoft with Autonet AI Agent</h3>
+    <p><strong>What happened:</strong> This article discusses how Microsoft’s Autonet AI agent enhances network management through conversational interfaces. It emphasizes the role of context in managing configurations and interactions.</p>
+    <p><strong>Why it matters:</strong> Understanding how context can streamline complex tasks helps beginners appreciate its implementation in AI systems.</p>
+    <p><strong>Try it:</strong> Reflect on how context has enhanced a tool or application you regularly use.</p>
+    <a href="https://news.google.com/rss/articles/CBMi1gFBVV95cUxQV0JTLThwazZUVUFnQkFwQzZ4RGZuNDRrMjFyYzhmdjN1cWVwZkZqZ0dKdFRYcGx6bFFZNWt1WXM0eENGdmxJOGx5T05IUlZ4VlhRVVNDQ3ZwdjlpU0dzTEc1ZndLYkNjNkR1Nk5OdmhDUldFWm45Vk1LZGdOZzdIaEJqMFhjUEZ2TjVsNmV5X2JENHIxdURjM2ZoV2VidWZZWUFYVXZJeHJSQlM1RVlxWUdnYVBNTm9RT2I0NE1ZcmN1RUNCeDhPRnEyLUdXMW55azVWSVBB?oc=5" target="_blank" class="button">Read More</a>
+  </article>
+  
+  <article class="story"><div class="story-visual" role="img" aria-label="MCP tools and orchestration"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="24" r="8" fill="none" stroke="#167d73" stroke-width="3"/><path d="M24 7v6M24 35v6M7 24h6M35 24h6M12 12l5 5M31 31l5 5M36 12l-5 5M17 31l-5 5" stroke="#d39a35" stroke-width="3" stroke-linecap="round"/></svg></div>
+    <div class="story-meta"><span class="source">NVIDIA Developer</span><span class="category">TRY</span></div>
+    <h3>Route AI Agents Across Models with NVIDIA NeMo Switchyard</h3>
+    <p><strong>What happened:</strong> NVIDIA introduces a strategy to route AI agents across various models based on state requirements. This allows agents to leverage capabilities effectively.</p>
+    <p><strong>Why it matters:</strong> Effective state management ensures that agents utilize the best tools available for specific tasks.</p>
+    <p><strong>Try it:</strong> Explore how different AI models can work together in your projects.</p>
+    <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxOTmVFSzFuVmdReS0wZXZxMDJKRW5JdW5CcFE2VEhDTG9OUkhkamM5d25TWTRpSy1lNm4zX1V5bHlPZDZIbXpXMi1vQ0VwZEY1aHdCeHgwYVZZVzU2NGQzeG9JbEJYaHRsWmM0UVJZbWtsSERzby1OVmZxSVFfeUdiY1lfLU95MEp0blZJRnRpS0habVNfZlFkVHg2YWJscHhxU2tF?oc=5" target="_blank" class="button">Read More</a>
+  </article>
+  
+  <article class="story"><div class="story-visual" role="img" aria-label="Guardrails and verification"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 6 39 12v10c0 10-6 17-15 21C15 39 9 32 9 22V12l15-6Z" fill="none" stroke="#167d73" stroke-width="3" stroke-linejoin="round"/><path d="m17 24 5 5 10-11" fill="none" stroke="#d39a35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="story-meta"><span class="source">Google Cloud</span><span class="category">VERIFY</span></div>
+    <h3>Knowledge Catalog: self-learning context enrichment for AI agents</h3>
+    <p><strong>What happened:</strong> This article describes a self-learning mechanism that enriches context for AI agents, enhancing decision-making and interactions.</p>
+    <p><strong>Why it matters:</strong> Context enrichment allows agents to adapt based on new information, improving their effectiveness.</p>
+    <p><strong>Try it:</strong> Investigate how self-learning elements can be included in your own projects.</p>
+    <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxPVGs1WHJ5RVdTemJWd0xXOHM1anJJbW8tZE1GZmJSdkVfMV9oLUIydnVXZUY2NHVGOW1aMnhrZFN0M3l3NnpIUWE3LTM0d2gycVAtQmE5SUpNSmVEMERIZE5JbHdoVXRlTnpoWXhQNkhFVTZzTTRhVGdtVkxic18yWEtidk85X3JYZE1XSUFaSVRIeXc1WEw1UUlLeHJOTUJ5WUhjODAyelduOFpURTFLRVlUQXhUUWV2Qnc?oc=5" target="_blank" class="button">Read More</a>
+  </article>
+</section>
+
+<section class="prompt-lab">
+  <div class="section-kicker">TRY</div>
+  <h2>Prompt Lab</h2>
+  <p><strong>Basic prompt:</strong> "What should an AI agent remember?"</p>
+  <div class="copy-prompt"><strong>Better prompt:</strong> "As an AI agent tasked with scheduling appointments, list key items you should remember, such as user preferences, past interactions, and context details like time zones or locations."</div>
+  <p><strong>Why it works:</strong> This version provides clear context and a specific task, encouraging detailed responses that directly apply to the user's needs.</p>
+</section>
+
+<section class="practice-plan">
+  <div class="section-kicker">PRACTICE</div>
+  <h2>Your 10-Minute Exercise</h2>
+  <ol>
+    <li>Identify a routine task you perform that could be automated by an AI agent.</li>
+    <li>Outline key memory items the agent would need to optimize this task.</li>
+    <li>Sketch a simple flowchart showing how state and context could be managed effectively during execution.</li>
+  </ol>
+</section>
+
+<section class="jimmy-take">
+  <h2>Jimmy's Take</h2>
+  <p>When designing AI systems, never underestimate the importance of memory and context. They are critical to creating agents that feel responsive and intelligent. Think about how forgetting even small details can impede workflow. By focusing on effective memory management, you can build systems that enhance productivity and user satisfaction.</p>
+</section>
+
+<section class="further-reading">
+  <h2>Keep Learning</h2>
+  <ul>
+    <li><a href="https://news.google.com/rss/articles/CBMi1gFBVV95cUxQV0JTLThwazZUVUFnQkFwQzZ4RGZuNDRrMjFyYzhmdjN1cWVwZkZqZ0dKdFRYcGx6bFFZNWt1WXM0eENGdmxJOGx5T05IUlZ4VlhRVVNDQ3ZwdjlpU0dzTEc1ZndLYkNjNkR1Nk5OdmhDUldFWm45Vk1LZGdOZzdIaEJqMFhjUEZ2TjVsNmV5X2JENHIxdURjM2ZoV2VidWZZWUFYVXZJeHJSQlM1RVlxWUdnYVBNTm9RT2I0NE1ZcmN1RUNCeDhPRnEyLUdXMW55azVWSVBB?oc=5">Turning network configuration management into a conversation at Microsoft with Autonet AI Agent</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxOTmVFSzFuVmdReS0wZXZxMDJKRW5JdW5CcFE2VEhDTG9OUkhkamM5d25TWTRpSy1lNm4zX1V5bHlPZDZIbXpXMi1vQ0VwZEY1aHdCeHgwYVZZVzU2NGQzeG9JbEJYaHRsWmM0UVJZbWtsSERzby1OVmZxSVFfeUdiY1lfLU95MEp0blZJRnRpS0habVNfZlFkVHg2YWJscHhxU2tF?oc=5">Route AI Agents Across Models with NVIDIA NeMo Switchyard</a></li>
+    <li><a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxPVGs1WHJ5RVdTemJWd0xXOHM1anJJbW8tZE1GZmJSdkVfMV9oLUIydnVXZUY2NHVGOW1aMnhrZFN0M3l3NnpIUWE3LTM0d2gycVAtQmE5SUpNSmVEMERIZE5JbHdoVXRlTnpoWXhQNkhFVTZzTTRhVGdtVkxic18yWEtidk85X3JYZE1XSUFaSVRIeXc1WEw1UUlLeHJOTUJ5WUhjODAyelduOFpURTFLRVlUQXhUUWV2Qnc?oc=5">Knowledge Catalog: self-learning context enrichment for AI agents</a></li>
+  </ul>
+</section></main>
+    <section class="about" id="about">
+      <h2>About This Report</h2>
+      <p>Jimmy's AI Field Guide helps builders design agentic AI systems, MCP servers, and reliable workflow automations through focused architecture lessons, trustworthy sources, and practical exercises.</p>
+    </section>
+    <footer class="footer">Generated automatically by Jimmy's AI Learning Agent</footer>
+  </div>
+</body>
+</html>
